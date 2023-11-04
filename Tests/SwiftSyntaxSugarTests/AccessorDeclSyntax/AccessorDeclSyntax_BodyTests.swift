@@ -20,7 +20,7 @@ final class AccessorDeclSyntax_BodyTests: XCTestCase {
 
     func testWithBody() {
         let sut = SUT(accessorSpecifier: .keyword(.get))
-            .withBody(body: CodeBlockSyntax {})
+            .withBody(CodeBlockSyntax {})
 
         XCTAssertNotNil(sut.body)
     }

@@ -14,7 +14,7 @@ extension AccessorDeclSyntax {
     ///
     /// - Parameter body: The body of the new accessor declaration.
     /// - Returns: A copy of the accessor declaration with the provided body.
-    public func withBody(body: CodeBlockSyntax?) -> AccessorDeclSyntax {
+    public func withBody(_ body: CodeBlockSyntax?) -> AccessorDeclSyntax {
         AccessorDeclSyntax(
             leadingTrivia: self.leadingTrivia,
             attributes: self.attributes,
