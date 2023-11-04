@@ -36,8 +36,7 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
     }
 
     func testGetAccessorDeclarationForGetter() {
-        let codeBlock = CodeBlockItemListSyntax {}
-        let sut = SUT(accessors: .getter(codeBlock))
+        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
         XCTAssertNil(sut.getAccessorDeclaration)
     }
@@ -61,8 +60,7 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
     }
 
     func testSetAccessorDeclarationForGetter() {
-        let codeBlock = CodeBlockItemListSyntax {}
-        let sut = SUT(accessors: .getter(codeBlock))
+        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
         XCTAssertNil(sut.setAccessorDeclaration)
     }
@@ -86,8 +84,7 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
     }
 
     func testContainsGetAccessorForGetter() {
-        let codeBlock = CodeBlockItemListSyntax {}
-        let sut = SUT(accessors: .getter(codeBlock))
+        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
         XCTAssertFalse(sut.containsGetAccessor)
     }
@@ -124,8 +121,7 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
     }
 
     func testContainsThrowingGetAccessorForGetter() {
-        let codeBlock = CodeBlockItemListSyntax {}
-        let sut = SUT(accessors: .getter(codeBlock))
+        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
         XCTAssertFalse(sut.containsThrowingGetAccessor)
     }
@@ -149,8 +145,7 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
     }
 
     func testContainsSetAccessorForGetter() {
-        let codeBlock = CodeBlockItemListSyntax {}
-        let sut = SUT(accessors: .getter(codeBlock))
+        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
         XCTAssertFalse(sut.containsSetAccessor)
     }
