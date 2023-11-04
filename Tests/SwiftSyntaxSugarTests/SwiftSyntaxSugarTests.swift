@@ -1,4 +1,5 @@
 import XCTest
+
 @testable import SwiftSyntaxSugar
 
 final class SwiftSyntaxSugarTests: XCTestCase {
