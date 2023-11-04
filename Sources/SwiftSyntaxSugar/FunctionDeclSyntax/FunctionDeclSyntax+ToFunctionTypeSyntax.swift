@@ -29,20 +29,24 @@ extension FunctionDeclSyntax {
         FunctionTypeSyntax(
             parameters: TupleTypeElementListSyntax {
                 for parameter in self.signature.parameterClause.parameters {
-                    if let attributedType = parameter.type.as(AttributedTypeSyntax.self) {
+                    if let attributedType = parameter.type.as(
+                        AttributedTypeSyntax.self
+                    ) {
                         TupleTypeElementSyntax(type: attributedType.baseType)
                     } else {
                         TupleTypeElementSyntax(type: parameter.type)
                     }
                 }
             },
-            effectSpecifiers: self.signature.effectSpecifiers.map { effectSpecifier in
+            effectSpecifiers: self.signature.effectSpecifiers.map {
+                effectSpecifiers in
                 TypeEffectSpecifiersSyntax(
-                    asyncSpecifier: effectSpecifier.asyncSpecifier,
-                    throwsSpecifier: effectSpecifier.throwsSpecifier
+                    asyncSpecifier: effectSpecifiers.asyncSpecifier,
+                    throwsSpecifier: effectSpecifiers.throwsSpecifier
                 )
             },
-            returnClause: self.signature.returnClause ?? ReturnClauseSyntax(type: .void)
+            returnClause: self.signature.returnClause
+                ?? ReturnClauseSyntax(type: .void)
         )
     }
 }

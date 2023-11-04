@@ -74,7 +74,9 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
                             baseType: FunctionTypeSyntax(
                                 parameters: TupleTypeElementListSyntax {
                                     TupleTypeElementSyntax(
-                                        type: IdentifierTypeSyntax(name: "String")
+                                        type: IdentifierTypeSyntax(
+                                            name: "String"
+                                        )
                                     )
                                     TupleTypeElementSyntax(
                                         type: IdentifierTypeSyntax(name: "Bool")
