@@ -18,13 +18,13 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
 
     // MARK: Is Async Tests
 
-    func testIsAsyncForNilAsyncSpecifier() {
+    func testIsAsyncWithNilAsyncSpecifier() {
         let sut = SUT(accessorSpecifier: .keyword(.get))
 
         XCTAssertFalse(sut.isAsync)
     }
 
-    func testIsAsyncForNonNilAsyncSpecifier() {
+    func testIsAsyncWithNonNilAsyncSpecifier() {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
@@ -37,13 +37,13 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
 
     // MARK: Is Throwing Tests
 
-    func testIsThrowingForNilThrowsSpecifier() {
+    func testIsThrowingWithNilThrowsSpecifier() {
         let sut = SUT(accessorSpecifier: .keyword(.get))
 
         XCTAssertFalse(sut.isThrowing)
     }
 
-    func testIsThrowingForNonNilThrowsSpecifier() {
+    func testIsThrowingWithNonNilThrowsSpecifier() {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
@@ -56,7 +56,7 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
 
     // MARK: Invocation Keyword Tokens Tests
 
-    func testInvocationKeywordTokensForNonNilAsyncSpecifier() throws {
+    func testInvocationKeywordTokensWithNonNilAsyncSpecifier() throws {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
@@ -71,7 +71,7 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         XCTAssertEqual(awaitKeywordToken.text, "await")
     }
 
-    func testInvocationKeywordTokensForNonNilThrowsSpecifier() throws {
+    func testInvocationKeywordTokensWithNonNilThrowsSpecifier() throws {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
@@ -86,7 +86,13 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         XCTAssertEqual(tryKeywordToken.text, "try")
     }
 
-    func testInvocationKeywordTokensForNonNilAsyncAndThrowsSpecifiers() throws {
+    func testInvocationKeywordTokensWithNilAsyncAndThrowsSpecifiers() {
+        let sut = SUT(accessorSpecifier: .keyword(.get))
+
+        XCTAssertNil(sut.invocationKeywordTokens)
+    }
+
+    func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
@@ -102,11 +108,5 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         XCTAssertEqual(invocationKeywordTokens.count, 2)
         XCTAssertEqual(tryKeywordToken.text, "try")
         XCTAssertEqual(awaitKeywordToken.text, "await")
-    }
-
-    func testInvocationKeywordTokensForNilAsyncAndThrowsSpecifiers() {
-        let sut = SUT(accessorSpecifier: .keyword(.get))
-
-        XCTAssertNil(sut.invocationKeywordTokens)
     }
 }
