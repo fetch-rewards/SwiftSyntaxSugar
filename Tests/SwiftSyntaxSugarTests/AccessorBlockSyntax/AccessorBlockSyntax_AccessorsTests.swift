@@ -104,7 +104,8 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
         XCTAssertTrue(sut.containsThrowingGetAccessor)
     }
 
-    func testContainsThrowingGetAccessorWithAccessorsWithNonThrowingGetAccessor()
+    func
+        testContainsThrowingGetAccessorWithAccessorsWithNonThrowingGetAccessor()
     {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
         let accessors = AccessorDeclListSyntax { accessor }
