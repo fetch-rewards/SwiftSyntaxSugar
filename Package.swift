@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "SwiftSyntaxSugar",
             targets: ["SwiftSyntaxSugar"]
-        )
+        ),
     ],
     targets: [
         .target(name: "SwiftSyntaxSugar"),
