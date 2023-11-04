@@ -23,20 +23,13 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {
-                    FunctionParameterSyntax(
-                        firstName: "integer",
-                        type: IdentifierTypeSyntax(name: "Int")
-                    )
+                    FunctionParameterSyntax(firstName: "integer", type: .int)
                     FunctionParameterSyntax(
                         firstName: "closure",
                         type: FunctionTypeSyntax(
                             parameters: TupleTypeElementListSyntax {
-                                TupleTypeElementSyntax(
-                                    type: IdentifierTypeSyntax(name: "String")
-                                )
-                                TupleTypeElementSyntax(
-                                    type: IdentifierTypeSyntax(name: "Bool")
-                                )
+                                TupleTypeElementSyntax(type: .string)
+                                TupleTypeElementSyntax(type: .bool)
                             },
                             returnClause: ReturnClauseSyntax(type: .void)
                         )
@@ -56,10 +49,7 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {
-                    FunctionParameterSyntax(
-                        firstName: "integer",
-                        type: IdentifierTypeSyntax(name: "Int")
-                    )
+                    FunctionParameterSyntax(firstName: "integer", type: .int)
                     FunctionParameterSyntax(
                         firstName: "closure",
                         type: AttributedTypeSyntax(
@@ -73,14 +63,8 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
                             },
                             baseType: FunctionTypeSyntax(
                                 parameters: TupleTypeElementListSyntax {
-                                    TupleTypeElementSyntax(
-                                        type: IdentifierTypeSyntax(
-                                            name: "String"
-                                        )
-                                    )
-                                    TupleTypeElementSyntax(
-                                        type: IdentifierTypeSyntax(name: "Bool")
-                                    )
+                                    TupleTypeElementSyntax(type: .string)
+                                    TupleTypeElementSyntax(type: .bool)
                                 },
                                 returnClause: ReturnClauseSyntax(type: .void)
                             )
