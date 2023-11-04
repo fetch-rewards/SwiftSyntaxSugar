@@ -18,7 +18,7 @@ final class DeclModifierSyntax_AccessLevelTests: XCTestCase {
 
     // MARK: Is Access Level Tests
 
-    func testIsAccessLevelForAccessLevelModifiers() {
+    func testIsAccessLevelWithAccessLevelModifiers() {
         for accessLevel in AccessLevelSyntax.allCases {
             let sut = SUT(name: accessLevel.token)
 
@@ -26,7 +26,7 @@ final class DeclModifierSyntax_AccessLevelTests: XCTestCase {
         }
     }
 
-    func testIsAccessLevelForNonAccessLevelModifiers() {
+    func testIsAccessLevelWithNonAccessLevelModifiers() {
         let keywords: [Keyword] = [.class, .lazy, .static]
 
         for keyword in keywords {
