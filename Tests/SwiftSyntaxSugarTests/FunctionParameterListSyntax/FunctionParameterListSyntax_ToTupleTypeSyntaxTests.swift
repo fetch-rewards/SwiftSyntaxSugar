@@ -76,8 +76,8 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
                     attributes: AttributeListSyntax {
                         AttributeSyntax(
                             atSign: .atSignToken(),
-                            attributeName: TypeSyntax(
-                                stringLiteral: "escaping"
+                            attributeName: IdentifierTypeSyntax(
+                                name: .keyword(.escaping)
                             )
                         )
                     },
