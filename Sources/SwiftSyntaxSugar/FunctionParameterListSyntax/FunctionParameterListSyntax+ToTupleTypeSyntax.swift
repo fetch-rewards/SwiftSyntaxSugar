@@ -41,7 +41,7 @@ extension FunctionParameterListSyntax {
     /// ```
     ///
     /// - Returns: The function parameter list as a tuple.
-    func toTupleTypeSyntax() -> TupleTypeSyntax? {
+    public func toTupleTypeSyntax() -> TupleTypeSyntax? {
         guard !self.isEmpty else {
             return nil
         }
