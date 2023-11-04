@@ -4,6 +4,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+timeline.xctimeline
+playground.xcworkspace
 
 # Swift Package Manager
 Packages/
@@ -12,3 +14,6 @@ Package.resolved
 *.xcodeproj
 .swiftpm
 .build/
+
+# Homebrew
+Brewfile.lock.json
