@@ -77,4 +77,3 @@ public enum AccessLevelSyntax: String, CaseIterable, Hashable {
         self = accessLevel
     }
 }
-
