@@ -8,6 +8,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+timeline.xctimeline
+playground.xcworkspace
 
 # Swift Package Manager
 Packages/
