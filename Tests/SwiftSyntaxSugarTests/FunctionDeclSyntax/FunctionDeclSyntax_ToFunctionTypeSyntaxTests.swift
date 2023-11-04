@@ -66,8 +66,8 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
                             attributes: AttributeListSyntax {
                                 AttributeSyntax(
                                     atSign: .atSignToken(),
-                                    attributeName: TypeSyntax(
-                                        stringLiteral: "escaping"
+                                    attributeName: IdentifierTypeSyntax(
+                                        name: .keyword(.escaping)
                                     )
                                 )
                             },
@@ -167,7 +167,7 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {},
-                returnClause: ReturnClauseSyntax(type: TypeSyntax.bool)
+                returnClause: ReturnClauseSyntax(type: .bool)
             )
         )
 
