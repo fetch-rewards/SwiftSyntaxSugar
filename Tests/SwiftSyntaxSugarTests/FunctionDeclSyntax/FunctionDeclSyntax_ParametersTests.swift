@@ -48,8 +48,12 @@ final class FunctionDeclSyntax_ParametersTests: XCTestCase {
         )
 
         let parameterVariableNames = try XCTUnwrap(sut.parameterVariableNames)
-        let firstParameterVariableName = try XCTUnwrap(parameterVariableNames.first)
-        let lastParameterVariableName = try XCTUnwrap(parameterVariableNames.last)
+        let firstParameterVariableName = try XCTUnwrap(
+            parameterVariableNames.first
+        )
+        let lastParameterVariableName = try XCTUnwrap(
+            parameterVariableNames.last
+        )
 
         XCTAssertEqual(firstParameterVariableName.text, "increment")
         XCTAssertEqual(lastParameterVariableName.text, "limit")

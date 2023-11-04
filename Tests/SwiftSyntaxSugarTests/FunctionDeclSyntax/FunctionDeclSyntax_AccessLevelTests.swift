@@ -61,7 +61,10 @@ final class FunctionDeclSyntax_AccessLevelTests: XCTestCase {
                 .withAccessLevel(newAccessLevel)
 
                 XCTAssertEqual(sut.accessLevel, newAccessLevel)
-                XCTAssertEqual(sut.modifiers.count, newAccessLevel == .internal ? 1 : 2)
+                XCTAssertEqual(
+                    sut.modifiers.count, 
+                    newAccessLevel == .internal ? 1 : 2
+                )
             }
         }
     }
@@ -80,7 +83,10 @@ final class FunctionDeclSyntax_AccessLevelTests: XCTestCase {
             .withAccessLevel(newAccessLevel)
 
             XCTAssertEqual(sut.accessLevel, newAccessLevel)
-            XCTAssertEqual(sut.modifiers.count, newAccessLevel == .internal ? 1 : 2)
+            XCTAssertEqual(
+                sut.modifiers.count, 
+                newAccessLevel == .internal ? 1 : 2
+            )
         }
     }
 }
