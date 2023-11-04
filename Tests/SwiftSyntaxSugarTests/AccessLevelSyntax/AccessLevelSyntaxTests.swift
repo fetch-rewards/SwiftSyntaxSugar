@@ -84,13 +84,13 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     // MARK: Initializer Tests
 
-    func testInitWithRawValueForValidRawValues() {
+    func testInitWithRawValueWithValidRawValues() {
         for sut in SUT.allCases {
             XCTAssertEqual(SUT(rawValue: sut.rawValue), sut)
         }
     }
 
-    func testInitWithRawValueForInvalidRawValues() {
+    func testInitWithRawValueWithInvalidRawValues() {
         let sut = SUT(rawValue: "sut")
 
         XCTAssertNil(sut)
