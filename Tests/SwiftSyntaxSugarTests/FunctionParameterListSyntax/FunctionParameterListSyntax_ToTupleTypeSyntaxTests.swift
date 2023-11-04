@@ -20,36 +20,23 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
 
     func testToTupleTypeSyntaxWithOneParameters() throws {
         let sut = SUT {
-            FunctionParameterSyntax(
-                firstName: "integer",
-                type: IdentifierTypeSyntax(name: "Int")
-            )
+            FunctionParameterSyntax(firstName: "integer", type: .int)
         }
 
         let tupleTypeSyntax = try XCTUnwrap(sut.toTupleTypeSyntax())
 
-        XCTAssertEqual(
-            tupleTypeSyntax.description,
-            "(Int)"
-        )
+        XCTAssertEqual(tupleTypeSyntax.description, "(Int)")
     }
 
     func testToTupleTypeSyntaxWithMultipleParameters() throws {
         let sut = SUT {
-            FunctionParameterSyntax(
-                firstName: "integer",
-                type: IdentifierTypeSyntax(name: "Int")
-            )
+            FunctionParameterSyntax(firstName: "integer", type: .int)
             FunctionParameterSyntax(
                 firstName: "closure",
                 type: FunctionTypeSyntax(
                     parameters: TupleTypeElementListSyntax {
-                        TupleTypeElementSyntax(
-                            type: IdentifierTypeSyntax(name: "String")
-                        )
-                        TupleTypeElementSyntax(
-                            type: IdentifierTypeSyntax(name: "Bool")
-                        )
+                        TupleTypeElementSyntax(type: .string)
+                        TupleTypeElementSyntax(type: .bool)
                     },
                     returnClause: ReturnClauseSyntax(type: .void)
                 )
@@ -66,10 +53,7 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
 
     func testToTupleTypeSyntaxWithAttributedParameters() throws {
         let sut = SUT {
-            FunctionParameterSyntax(
-                firstName: "integer",
-                type: IdentifierTypeSyntax(name: "Int")
-            )
+            FunctionParameterSyntax(firstName: "integer", type: .int)
             FunctionParameterSyntax(
                 firstName: "closure",
                 type: AttributedTypeSyntax(
@@ -83,14 +67,8 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
                     },
                     baseType: FunctionTypeSyntax(
                         parameters: TupleTypeElementListSyntax {
-                            TupleTypeElementSyntax(
-                                type: IdentifierTypeSyntax(
-                                    name: "String"
-                                )
-                            )
-                            TupleTypeElementSyntax(
-                                type: IdentifierTypeSyntax(name: "Bool")
-                            )
+                            TupleTypeElementSyntax(type: .string)
+                            TupleTypeElementSyntax(type: .bool)
                         },
                         returnClause: ReturnClauseSyntax(type: .void)
                     )
