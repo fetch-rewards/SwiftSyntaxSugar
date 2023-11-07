@@ -18,9 +18,6 @@
 ## Function @attributes: preserve, prev-line, or same-line.
 --funcattributes prev-line
 
-## Guard else: same-line, next-line, or auto (default).
---guardelse same-line
-
 ## Header comments: strip, ignore, or the text you wish use.
 --header ignore
 
@@ -42,7 +39,7 @@
 ## Spacing for ranges: spaced (default) or no-space.
 --ranges no-space
 
-## inferred, explicit, or infer-locals-only (default).
+## Redundant type: inferred, explicit, or infer-locals-only (default).
 --redundanttype inferred
 
 ## Explicit self: insert, remove (default), or init-only.
@@ -60,7 +57,7 @@
 ## Type @attributes: preserve, prev-line, or same-line.
 --typeattributes prev-line
 
-## remove (default) or preserve blank lines from types.
+## Blank lines from types: remove (default) or preserve.
 --typeblanklines preserve
 
 ## Property @attributes: preserve, prev-line, or same-line.
@@ -73,19 +70,13 @@
 --wrapcollections before-first
 
 ## Wrap conditions: before-first, after-first, preserve.
---wrapconditions before-first
+--wrapconditions preserve
 
 ## Wrap effects: if-multiline, never, preserve.
 --wrapeffects never
 
-## Wrap enum cases: always (default) or with-values
---wrapenumcases with-values
-
 ## Wrap func params: before-first, after-first, preserve
 --wrapparameters before-first
-
-## Wrap return type: if-multiline, preserve (default)
---wrapreturntype if-multiline
 
 ## Wrap ternary operators: default, before-operators
 --wrapternary before-operators
@@ -106,7 +97,8 @@
 ## Prefer AnyObject over class in protocol definitions.
 --rules anyObjectProtocol
 
-## Replace obsolete @UIApplicationMain and @NSApplicationMain attributes with @main for Swift 5.3 and above.
+## Replace obsolete @UIApplicationMain and @NSApplicationMain attributes 
+## with @main for Swift 5.3 and above.
 --rules applicationMain
 
 ## Changes all instances of assert(false, ...) to assertionFailure(...) 
@@ -276,19 +268,6 @@
 ### Options:
 ###   --someany (default: true)
 --rules opaqueGenericParameters
-
-## Organize declarations within class, struct, enum, actor, and extension bodies.
-### Options:
-###   --categorymark (default: MARK: %c)
-###   --markcategories (default: true)
-###   --beforemarks
-###   --lifecycle
-###   --organizetypes (default: class,actor,struct,enum)
-###   --structthreshold (default: 0)
-###   --classthreshold (default: 0)
-###   --enumthreshold (default: 0)
-###   --extensionlength (default: 0)
---rules organizeDeclarations
 
 ## Convert trivial map { $0.foo } closures to keyPath-based syntax.
 --rules preferKeyPath
@@ -495,7 +474,7 @@
 --rules wrapEnumCases
 
 ## Wrap the opening brace of multiline statements.
-#### --rules wrapMultilineStatementBraces
+--rules wrapMultilineStatementBraces
 
 ## Wrap single line // comments that exceed the specified --maxwidth.
 --rules wrapSingleLineComments
