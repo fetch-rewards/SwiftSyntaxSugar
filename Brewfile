@@ -1,1 +1,2 @@
-brew "swift-format"
+brew "swiftformat"
+cask "swiftformat-for-xcode"
