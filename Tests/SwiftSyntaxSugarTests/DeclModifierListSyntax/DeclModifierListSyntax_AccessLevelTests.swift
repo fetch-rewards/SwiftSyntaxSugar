@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class DeclModifierListSyntax_AccessLevelTests: XCTestCase {

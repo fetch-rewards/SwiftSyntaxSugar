@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class AccessLevelSyntaxTests: XCTestCase {
@@ -20,15 +19,14 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     func testRawValues() {
         for sut in SUT.allCases {
-            let expectedRawValue =
-                switch sut {
-                case .fileprivate: "fileprivate"
-                case .internal: "internal"
-                case .open: "open"
-                case .package: "package"
-                case .private: "private"
-                case .public: "public"
-                }
+            let expectedRawValue = switch sut {
+            case .fileprivate: "fileprivate"
+            case .internal: "internal"
+            case .open: "open"
+            case .package: "package"
+            case .private: "private"
+            case .public: "public"
+            }
 
             XCTAssertEqual(sut.rawValue, expectedRawValue)
         }
@@ -36,15 +34,14 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     func testKeywords() {
         for sut in SUT.allCases {
-            let expectedKeyword: Keyword =
-                switch sut {
-                case .fileprivate: .fileprivate
-                case .internal: .internal
-                case .open: .open
-                case .package: .package
-                case .private: .private
-                case .public: .public
-                }
+            let expectedKeyword: Keyword = switch sut {
+            case .fileprivate: .fileprivate
+            case .internal: .internal
+            case .open: .open
+            case .package: .package
+            case .private: .private
+            case .public: .public
+            }
 
             XCTAssertEqual(sut.keyword, expectedKeyword)
         }
@@ -52,15 +49,14 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     func testTokens() {
         for sut in SUT.allCases {
-            let expectedTokenText =
-                switch sut {
-                case .fileprivate: "fileprivate"
-                case .internal: "internal"
-                case .open: "open"
-                case .package: "package"
-                case .private: "private"
-                case .public: "public"
-                }
+            let expectedTokenText = switch sut {
+            case .fileprivate: "fileprivate"
+            case .internal: "internal"
+            case .open: "open"
+            case .package: "package"
+            case .private: "private"
+            case .public: "public"
+            }
 
             XCTAssertEqual(sut.token.text, expectedTokenText)
         }
@@ -68,15 +64,14 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     func testModifiers() {
         for sut in SUT.allCases {
-            let expectedModifierNameText =
-                switch sut {
-                case .fileprivate: "fileprivate"
-                case .internal: "internal"
-                case .open: "open"
-                case .package: "package"
-                case .private: "private"
-                case .public: "public"
-                }
+            let expectedModifierNameText = switch sut {
+            case .fileprivate: "fileprivate"
+            case .internal: "internal"
+            case .open: "open"
+            case .package: "package"
+            case .private: "private"
+            case .public: "public"
+            }
 
             XCTAssertEqual(sut.modifier.name.text, expectedModifierNameText)
         }

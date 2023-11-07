@@ -8,7 +8,6 @@
 import SwiftSyntax
 import SwiftSyntaxBuilder
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
