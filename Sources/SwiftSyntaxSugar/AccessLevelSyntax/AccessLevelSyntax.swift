@@ -19,10 +19,10 @@ public enum AccessLevelSyntax: String, CaseIterable, Hashable {
     case `internal`
 
     /// The `open` access level.
-    case `open`
+    case open
 
     /// The `package` access level.
-    case `package`
+    case package
 
     /// The `private` access level.
     case `private`

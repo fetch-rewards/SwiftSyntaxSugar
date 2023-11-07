@@ -29,9 +29,7 @@ extension FunctionDeclSyntax {
         FunctionTypeSyntax(
             parameters: TupleTypeElementListSyntax {
                 for parameter in self.signature.parameterClause.parameters {
-                    if let attributedType = parameter.type.as(
-                        AttributedTypeSyntax.self
-                    ) {
+                    if let attributedType = parameter.type.as(AttributedTypeSyntax.self) {
                         TupleTypeElementSyntax(type: attributedType.baseType)
                     } else {
                         TupleTypeElementSyntax(type: parameter.type)

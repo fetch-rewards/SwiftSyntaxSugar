@@ -21,7 +21,7 @@ extension TypeSyntax {
     /// ```swift
     /// TypeSyntax(describing: Int.self)
     /// ```
-    public init<Subject>(describing subject: Subject) {
+    public init(describing subject: some Any) {
         self.init(stringLiteral: String(describing: subject))
     }
 }

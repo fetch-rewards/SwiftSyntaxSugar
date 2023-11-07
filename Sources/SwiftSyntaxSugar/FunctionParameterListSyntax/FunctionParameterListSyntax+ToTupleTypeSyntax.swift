@@ -49,9 +49,7 @@ extension FunctionParameterListSyntax {
         return TupleTypeSyntax(
             elements: TupleTypeElementListSyntax {
                 for parameter in self {
-                    let attributedType = parameter.type.as(
-                        AttributedTypeSyntax.self
-                    )
+                    let attributedType = parameter.type.as(AttributedTypeSyntax.self)
                     let type = attributedType?.baseType ?? parameter.type
 
                     if self.count == 1 {

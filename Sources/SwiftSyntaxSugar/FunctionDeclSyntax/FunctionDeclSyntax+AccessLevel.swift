@@ -21,9 +21,7 @@ extension FunctionDeclSyntax {
     ///   declaration.
     /// - Returns: A copy of the function declaration with the provided access
     ///   level.
-    public func withAccessLevel(
-        _ accessLevel: AccessLevelSyntax
-    ) -> FunctionDeclSyntax {
+    public func withAccessLevel(_ accessLevel: AccessLevelSyntax) -> FunctionDeclSyntax {
         let modifiers = DeclModifierListSyntax {
             if accessLevel != .internal {
                 accessLevel.modifier

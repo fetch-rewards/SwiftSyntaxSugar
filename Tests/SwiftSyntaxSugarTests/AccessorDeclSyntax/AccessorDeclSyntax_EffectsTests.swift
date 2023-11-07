@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class AccessorDeclSyntax_EffectsTests: XCTestCase {
@@ -92,8 +91,7 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         XCTAssertNil(sut.invocationKeywordTokens)
     }
 
-    func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws
-    {
+    func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
