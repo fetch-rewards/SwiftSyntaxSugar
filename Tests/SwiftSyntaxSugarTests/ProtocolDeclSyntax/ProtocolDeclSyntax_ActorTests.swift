@@ -21,14 +21,31 @@ final class ProtocolDeclSyntax_ActorTests: XCTestCase {
     func testIsActorConstrainedWithNilInheritanceClause() {
         let sut = SUT(name: "SUT") {}
 
-        XCTAssertNil(sut.isActorConstrained)
+        XCTAssertFalse(sut.isActorConstrained)
     }
 
     func testIsActorConstrainedWithNonNilInheritanceClauseWithActorConformance() {
+        let sut = SUT(
+            name: "SUT",
+            inheritanceClause: InheritanceClauseSyntax {
+                InheritedTypeSyntax(type: TypeSyntax(describing: (any Hashable).self))
+                InheritedTypeSyntax(type: TypeSyntax(describing: Actor.self))
+                InheritedTypeSyntax(type: TypeSyntax(describing: (any Identifiable).self))
+            }
+        ) {}
 
+        XCTAssertTrue(sut.isActorConstrained)
     }
 
     func testIsActorConstrainedWithNonNilInheritanceClauseWithoutActorConformance() {
+        let sut = SUT(
+            name: "SUT",
+            inheritanceClause: InheritanceClauseSyntax {
+                InheritedTypeSyntax(type: TypeSyntax(describing: (any Hashable).self))
+                InheritedTypeSyntax(type: TypeSyntax(describing: (any Identifiable).self))
+            }
+        ) {}
 
+        XCTAssertFalse(sut.isActorConstrained)
     }
 }
