@@ -47,16 +47,6 @@ extension AccessorBlockSyntax {
         self.getAccessorDeclaration != nil
     }
 
-    /// A boolean indicating if the accessor block contains a `get throws`
-    /// accessor declaration.
-    public var containsThrowingGetAccessor: Bool {
-        guard let getAccessorDeclaration = self.getAccessorDeclaration else {
-            return false
-        }
-
-        return getAccessorDeclaration.effectSpecifiers?.throwsSpecifier != nil
-    }
-
     /// A boolean indicating if the accessor block contains a `set` accessor
     /// declaration.
     public var containsSetAccessor: Bool {

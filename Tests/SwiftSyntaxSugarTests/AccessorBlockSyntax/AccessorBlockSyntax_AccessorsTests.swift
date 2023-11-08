@@ -89,45 +89,6 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
         XCTAssertFalse(sut.containsGetAccessor)
     }
 
-    // MARK: Contains Throwing Get Accessor Tests
-
-    func testContainsThrowingGetAccessorWithAccessorsWithThrowingGetAccessor() {
-        let accessor = AccessorDeclSyntax(
-            accessorSpecifier: .keyword(.get),
-            effectSpecifiers: AccessorEffectSpecifiersSyntax(
-                throwsSpecifier: .keyword(.throws)
-            )
-        )
-        let accessors = AccessorDeclListSyntax { accessor }
-        let sut = SUT(accessors: .accessors(accessors))
-
-        XCTAssertTrue(sut.containsThrowingGetAccessor)
-    }
-
-    func
-        testContainsThrowingGetAccessorWithAccessorsWithNonThrowingGetAccessor()
-    {
-        let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
-        let accessors = AccessorDeclListSyntax { accessor }
-        let sut = SUT(accessors: .accessors(accessors))
-
-        XCTAssertFalse(sut.containsThrowingGetAccessor)
-    }
-
-    func testContainsThrowingGetAccessorWithAccessorsWithoutGetAccessor() {
-        let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.set))
-        let accessors = AccessorDeclListSyntax { accessor }
-        let sut = SUT(accessors: .accessors(accessors))
-
-        XCTAssertFalse(sut.containsThrowingGetAccessor)
-    }
-
-    func testContainsThrowingGetAccessorWithGetter() {
-        let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
-
-        XCTAssertFalse(sut.containsThrowingGetAccessor)
-    }
-
     // MARK: Contains Set Accessor Tests
 
     func testContainsSetAccessorWithAccessorsWithSetAccessor() {
