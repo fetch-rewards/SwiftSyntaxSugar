@@ -20,7 +20,7 @@ extension FunctionDeclSyntax {
     }
 
     /// The keywords needed to invoke the function (i.e. `try` and/or `await`).
-    public var invocationKeywordTokens: [TokenSyntax]? {
+    public var invocationKeywordTokens: [TokenSyntax] {
         var keywordTokens: [TokenSyntax] = []
 
         if self.isThrowing {
@@ -31,6 +31,6 @@ extension FunctionDeclSyntax {
             keywordTokens.append(.keyword(.await))
         }
 
-        return keywordTokens.isEmpty ? nil : keywordTokens
+        return keywordTokens
     }
 }
