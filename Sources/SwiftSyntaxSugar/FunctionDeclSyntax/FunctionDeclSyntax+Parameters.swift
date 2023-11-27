@@ -17,14 +17,8 @@ extension FunctionDeclSyntax {
     /// func increase(by increment: Int, limit: Int)
     /// ```
     /// the parameter variable names would be `increment` and `limit`.
-    public var parameterVariableNames: [TokenSyntax]? {
-        let parameters = self.signature.parameterClause.parameters
-
-        guard !parameters.isEmpty else {
-            return nil
-        }
-
-        return parameters.map { parameter in
+    public var parameterVariableNames: [TokenSyntax] {
+        self.signature.parameterClause.parameters.map { parameter in
             parameter.secondName ?? parameter.firstName
         }
     }

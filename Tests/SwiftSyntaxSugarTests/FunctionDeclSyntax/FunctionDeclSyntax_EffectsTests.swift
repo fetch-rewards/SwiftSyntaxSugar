@@ -140,7 +140,7 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
             )
         )
 
-        XCTAssertNil(sut.invocationKeywordTokens)
+        XCTAssertTrue(sut.invocationKeywordTokens.isEmpty)
     }
 
     func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws {
@@ -172,6 +172,6 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
             )
         )
 
-        XCTAssertNil(sut.invocationKeywordTokens)
+        XCTAssertTrue(sut.invocationKeywordTokens.isEmpty)
     }
 }

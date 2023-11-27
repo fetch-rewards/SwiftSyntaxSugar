@@ -20,7 +20,7 @@ extension AccessorDeclSyntax {
     }
 
     /// The keywords needed to invoke the accessor (i.e. `try` and/or `await`).
-    public var invocationKeywordTokens: [TokenSyntax]? {
+    public var invocationKeywordTokens: [TokenSyntax] {
         var keywordTokens: [TokenSyntax] = []
 
         if self.isThrowing {
@@ -31,6 +31,6 @@ extension AccessorDeclSyntax {
             keywordTokens.append(.keyword(.await))
         }
 
-        return keywordTokens.isEmpty ? nil : keywordTokens
+        return keywordTokens
     }
 }
