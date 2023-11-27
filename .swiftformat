@@ -2,7 +2,7 @@
 --swiftversion 5.9
 
 # SwiftFormat Version
---minversion 0.52.8
+--minversion 0.52.10
 
 # Options
 
@@ -30,11 +30,14 @@
 ## Number of spaces to indent, or tab to use tabs.
 --indent 4
 
+## Indent multiline strings: false (default) or true
+--indentstrings true
+
+## Mark types always (default), never, or if-not-empty
+--marktypes never
+
 ## Maximum length of a line before wrapping or none (default).
 --maxwidth 100
-
-## Spacing for operator funcs: spaced (default) or no-space.
---operatorfunc no-space
 
 ## Spacing for ranges: spaced (default) or no-space.
 --ranges no-space
@@ -478,9 +481,6 @@
 
 ## Wrap single line // comments that exceed the specified --maxwidth.
 --rules wrapSingleLineComments
-
-## Wrap comma-delimited switch cases onto multiple lines.
-#### --rules wrapSwitchCases
 
 ## Prefer constant values to be on the right-hand-side of expressions.
 ### Options:
