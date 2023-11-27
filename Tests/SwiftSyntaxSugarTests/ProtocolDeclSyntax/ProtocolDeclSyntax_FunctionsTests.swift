@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class ProtocolDeclSyntax_FunctionsTests: XCTestCase {
