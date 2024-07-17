@@ -35,7 +35,8 @@ extension FunctionDeclSyntax {
     ///   function declaration.
     /// - Returns: A copy of the function declaration with the provided body.
     public func withBody(
-        @CodeBlockItemListBuilder bodyBuilder: @escaping () throws -> CodeBlockItemListSyntax?
+        @CodeBlockItemListBuilder 
+        bodyBuilder: @escaping () throws -> CodeBlockItemListSyntax?
     ) throws -> FunctionDeclSyntax {
         try FunctionDeclSyntax(
             leadingTrivia: self.leadingTrivia,

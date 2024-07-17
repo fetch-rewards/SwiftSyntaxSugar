@@ -32,17 +32,6 @@ extension FunctionDeclSyntax {
             }
         }
 
-        return FunctionDeclSyntax(
-            leadingTrivia: self.leadingTrivia,
-            attributes: self.attributes,
-            modifiers: modifiers,
-            funcKeyword: self.funcKeyword,
-            name: self.name,
-            genericParameterClause: self.genericParameterClause,
-            signature: self.signature,
-            genericWhereClause: self.genericWhereClause,
-            body: self.body,
-            trailingTrivia: self.trailingTrivia
-        )
+        return self.withModifiers(modifiers)
     }
 }
