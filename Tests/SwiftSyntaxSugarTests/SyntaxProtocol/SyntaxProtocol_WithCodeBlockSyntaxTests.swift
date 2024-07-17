@@ -28,4 +28,16 @@ final class SyntaxProtocol_WithCodeBlockSyntaxTests: XCTestCase {
 
         XCTAssertNotNil(sut.body)
     }
+
+    func testWithCodeBlockSyntaxWithClosureParameter() throws {
+        let sut = try SUT(
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
+            )
+        )
+        .with(\.body) { _ in }
+
+        XCTAssertNotNil(sut.body)
+    }
 }

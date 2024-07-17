@@ -24,12 +24,12 @@ extension VariableDeclSyntax {
     public func withAccessLevel(
         _ accessLevel: AccessLevelSyntax
     ) throws -> VariableDeclSyntax {
-        try self.with(\.modifiers) {
+        try self.with(\.modifiers) { modifiers in
             if accessLevel != .internal {
                 accessLevel.modifier
             }
 
-            for modifier in self.modifiers where !modifier.isAccessLevel {
+            for modifier in modifiers where !modifier.isAccessLevel {
                 modifier
             }
         }
