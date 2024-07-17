@@ -36,4 +36,24 @@ final class SyntaxProtocol_WithDeclModifierListSyntax: XCTestCase {
         XCTAssertEqual(modifier1.name.tokenKind, .keyword(.private))
         XCTAssertEqual(modifier2.name.tokenKind, .keyword(.static))
     }
+
+    func testWithDeclModifierListSyntaxWithClosureParameter() throws {
+        let sut = try SUT(
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
+            )
+        )
+        .with(\.modifiers) { _ in
+            DeclModifierSyntax(name: .keyword(.private))
+            DeclModifierSyntax(name: .keyword(.static))
+        }
+
+        let modifier1 = try XCTUnwrap(sut.modifiers.first)
+        let modifier2 = try XCTUnwrap(sut.modifiers.last)
+
+        XCTAssertEqual(sut.modifiers.count, 2)
+        XCTAssertEqual(modifier1.name.tokenKind, .keyword(.private))
+        XCTAssertEqual(modifier2.name.tokenKind, .keyword(.static))
+    }
 }
