@@ -49,8 +49,13 @@ public enum AccessLevelSyntax: String, CaseIterable, Hashable {
         }
     }
 
-    /// The access level as a token.
+    /// The access level's token.
     public var token: TokenSyntax {
+        .keyword(self.keyword)
+    }
+
+    /// The access level's token kind.
+    public var tokenKind: TokenKind {
         .keyword(self.keyword)
     }
 
@@ -61,7 +66,7 @@ public enum AccessLevelSyntax: String, CaseIterable, Hashable {
 
     // MARK: Initializers
 
-    /// Creates an access level with the specified raw value.
+    /// Creates an access level from the specified raw value.
     ///
     /// If there is no access level that corresponds to the specified raw value,
     /// this initializer returns `nil`.
@@ -75,5 +80,26 @@ public enum AccessLevelSyntax: String, CaseIterable, Hashable {
         }
 
         self = accessLevel
+    }
+
+    /// Creates an access level from the specified token.
+    ///
+    /// If there is no access level that corresponds to the specified token,
+    /// this initializer returns `nil`.
+    ///
+    /// - Parameter token: The token from which to create the access level.
+    public init?(token: TokenSyntax) {
+        self.init(rawValue: token.text)
+    }
+
+    /// Creates an access level from the specified modifier.
+    ///
+    /// If there is no access level that corresponds to the specified modifier,
+    /// this initializer returns `nil`.
+    ///
+    /// - Parameter modifier: The modifier from which to create the access
+    ///   level.
+    public init?(modifier: DeclModifierSyntax) {
+        self.init(token: modifier.name)
     }
 }

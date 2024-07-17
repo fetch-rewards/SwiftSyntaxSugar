@@ -77,7 +77,7 @@ final class AccessLevelSyntaxTests: XCTestCase {
         }
     }
 
-    // MARK: Initializer Tests
+    // MARK: Raw Value Initializer Tests
 
     func testInitWithRawValueWithValidRawValues() {
         for sut in SUT.allCases {
@@ -87,6 +87,34 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     func testInitWithRawValueWithInvalidRawValues() {
         let sut = SUT(rawValue: "sut")
+
+        XCTAssertNil(sut)
+    }
+
+    // MARK: Token Initializer Tests
+
+    func testInitWithTokenWithValidTokens() {
+        for sut in SUT.allCases {
+            XCTAssertEqual(SUT(token: sut.token), sut)
+        }
+    }
+
+    func testInitWithTokenWithInvalidTokens() {
+        let sut = SUT(token: "sut")
+
+        XCTAssertNil(sut)
+    }
+
+    // MARK: Modifier Initializer Tests
+
+    func testInitWithModifierWithValidModifiers() {
+        for sut in SUT.allCases {
+            XCTAssertEqual(SUT(modifier: sut.modifier), sut)
+        }
+    }
+
+    func testInitWithModifierWithInvalidModifiers() {
+        let sut = SUT(modifier: DeclModifierSyntax(name: .keyword(.static)))
 
         XCTAssertNil(sut)
     }

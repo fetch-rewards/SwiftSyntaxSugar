@@ -12,7 +12,7 @@ extension DeclModifierSyntax {
     /// A boolean indicating if the modifier is an access level modifier.
     public var isAccessLevel: Bool {
         AccessLevelSyntax.allCases.contains { accessLevel in
-            self.name.text == accessLevel.token.text
+            self.name.tokenKind == accessLevel.tokenKind
         }
     }
 }

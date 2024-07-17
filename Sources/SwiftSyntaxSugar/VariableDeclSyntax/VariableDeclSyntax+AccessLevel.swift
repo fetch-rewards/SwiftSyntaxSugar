@@ -21,8 +21,10 @@ extension VariableDeclSyntax {
     ///   declaration.
     /// - Returns: A copy of the variable declaration with the provided access
     ///   level.
-    public func withAccessLevel(_ accessLevel: AccessLevelSyntax) -> VariableDeclSyntax {
-        let modifiers = DeclModifierListSyntax {
+    public func withAccessLevel(
+        _ accessLevel: AccessLevelSyntax
+    ) throws -> VariableDeclSyntax {
+        try self.with(\.modifiers) {
             if accessLevel != .internal {
                 accessLevel.modifier
             }
@@ -31,14 +33,5 @@ extension VariableDeclSyntax {
                 modifier
             }
         }
-
-        return VariableDeclSyntax(
-            leadingTrivia: self.leadingTrivia,
-            attributes: self.attributes,
-            modifiers: modifiers,
-            bindingSpecifier: self.bindingSpecifier,
-            bindings: self.bindings,
-            trailingTrivia: self.trailingTrivia
-        )
     }
 }
