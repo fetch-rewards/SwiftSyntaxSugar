@@ -25,7 +25,7 @@ final class FunctionDeclSyntax_ParametersTests: XCTestCase {
             )
         )
 
-        XCTAssertNil(sut.parameterVariableNames)
+        XCTAssertTrue(sut.parameterVariableNames.isEmpty)
     }
 
     func testParameterVariableNamesWithNonEmptyParameters() throws {

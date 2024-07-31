@@ -88,7 +88,7 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
     func testInvocationKeywordTokensWithNilAsyncAndThrowsSpecifiers() {
         let sut = SUT(accessorSpecifier: .keyword(.get))
 
-        XCTAssertNil(sut.invocationKeywordTokens)
+        XCTAssertTrue(sut.invocationKeywordTokens.isEmpty)
     }
 
     func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws {
