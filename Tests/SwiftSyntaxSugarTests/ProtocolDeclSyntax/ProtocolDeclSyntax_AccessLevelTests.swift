@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
@@ -60,7 +59,7 @@ final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
             }
 
             XCTAssertEqual(
-                sut.minimumConformingAccessLevel, 
+                sut.minimumConformingAccessLevel,
                 expectedMinimumConformingAccessLevel
             )
         }

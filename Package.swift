@@ -16,13 +16,13 @@ let package = Package(
         .library(
             name: "SwiftSyntaxSugar",
             targets: ["SwiftSyntaxSugar"]
-        )
+        ),
     ],
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-syntax.git",
-            exact: "509.0.0"
-        )
+            exact: "509.0.2"
+        ),
     ],
     targets: [
         .target(

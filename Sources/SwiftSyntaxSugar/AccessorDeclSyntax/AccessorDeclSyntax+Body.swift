@@ -33,8 +33,7 @@ extension AccessorDeclSyntax {
     ///   accessor declaration.
     /// - Returns: A copy of the accessor declaration with the provided body.
     public func withBody(
-        @CodeBlockItemListBuilder
-        bodyBuilder: @escaping () throws -> CodeBlockItemListSyntax?
+        @CodeBlockItemListBuilder bodyBuilder: @escaping () throws -> CodeBlockItemListSyntax?
     ) throws -> AccessorDeclSyntax {
         try AccessorDeclSyntax(
             leadingTrivia: self.leadingTrivia,

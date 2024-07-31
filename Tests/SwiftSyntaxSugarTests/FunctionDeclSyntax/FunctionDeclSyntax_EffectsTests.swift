@@ -7,7 +7,6 @@
 
 import SwiftSyntax
 import XCTest
-
 @testable import SwiftSyntaxSugar
 
 final class FunctionDeclSyntax_EffectsTests: XCTestCase {
@@ -144,8 +143,7 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
         XCTAssertNil(sut.invocationKeywordTokens)
     }
 
-    func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws
-    {
+    func testInvocationKeywordTokensWithNonNilAsyncAndThrowsSpecifiers() throws {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
