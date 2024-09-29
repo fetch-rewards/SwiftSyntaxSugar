@@ -13,7 +13,9 @@ extension FunctionTypeSyntax {
     ///
     /// - Returns: An escaping version of the function type.
     public func escaping() -> AttributedTypeSyntax {
+        // TODO: Remove specifiers argument when deprecated init is removed.
         AttributedTypeSyntax(
+            specifiers: [],
             attributes: AttributeListSyntax {
                 AttributeSyntax(
                     atSign: .atSignToken(),

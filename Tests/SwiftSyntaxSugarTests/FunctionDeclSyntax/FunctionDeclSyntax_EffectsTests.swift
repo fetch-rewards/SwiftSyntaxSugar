@@ -74,7 +74,9 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {},
                 effectSpecifiers: FunctionEffectSpecifiersSyntax(
-                    throwsSpecifier: .keyword(.throws)
+                    throwsClause: ThrowsClauseSyntax(
+                        throwsSpecifier: .keyword(.throws)
+                    )
                 )
             )
         )
@@ -119,7 +121,9 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {},
                 effectSpecifiers: FunctionEffectSpecifiersSyntax(
-                    throwsSpecifier: .keyword(.throws)
+                    throwsClause: ThrowsClauseSyntax(
+                        throwsSpecifier: .keyword(.throws)
+                    )
                 )
             )
         )
@@ -150,7 +154,9 @@ final class FunctionDeclSyntax_EffectsTests: XCTestCase {
                 parameterClause: FunctionParameterClauseSyntax {},
                 effectSpecifiers: FunctionEffectSpecifiersSyntax(
                     asyncSpecifier: .keyword(.async),
-                    throwsSpecifier: .keyword(.throws)
+                    throwsClause: ThrowsClauseSyntax(
+                        throwsSpecifier: .keyword(.throws)
+                    )
                 )
             )
         )

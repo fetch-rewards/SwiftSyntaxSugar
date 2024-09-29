@@ -16,7 +16,7 @@ extension AccessorDeclSyntax {
 
     /// A boolean indicating if the accessor is throwing.
     public var isThrowing: Bool {
-        self.effectSpecifiers?.throwsSpecifier != nil
+        self.effectSpecifiers?.throwsClause != nil
     }
 
     /// The keywords needed to invoke the accessor (i.e. `try` and/or `await`).

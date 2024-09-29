@@ -51,11 +51,13 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
     }
 
     func testToTupleTypeSyntaxWithAttributedParameters() throws {
+        // TODO: Remove AttributedTypeSyntax specifiers argument when deprecated init is removed.
         let sut = SUT {
             FunctionParameterSyntax(firstName: "integer", type: .int)
             FunctionParameterSyntax(
                 firstName: "closure",
                 type: AttributedTypeSyntax(
+                    specifiers: [],
                     attributes: AttributeListSyntax {
                         AttributeSyntax(
                             atSign: .atSignToken(),

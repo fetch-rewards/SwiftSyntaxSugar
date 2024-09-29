@@ -40,7 +40,7 @@ extension FunctionDeclSyntax {
                 effectSpecifiers in
                 TypeEffectSpecifiersSyntax(
                     asyncSpecifier: effectSpecifiers.asyncSpecifier,
-                    throwsSpecifier: effectSpecifiers.throwsSpecifier
+                    throwsClause: effectSpecifiers.throwsClause
                 )
             },
             returnClause: self.signature.returnClause

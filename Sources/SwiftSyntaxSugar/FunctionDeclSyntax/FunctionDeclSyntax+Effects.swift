@@ -16,7 +16,7 @@ extension FunctionDeclSyntax {
 
     /// A boolean indicating if the function is throwing.
     public var isThrowing: Bool {
-        self.signature.effectSpecifiers?.throwsSpecifier != nil
+        self.signature.effectSpecifiers?.throwsClause != nil
     }
 
     /// The keywords needed to invoke the function (i.e. `try` and/or `await`).

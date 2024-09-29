@@ -44,6 +44,7 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
     }
 
     func testToFunctionTypeSyntaxWithAttributedParameters() {
+        // TODO: Remove AttributedTypeSyntax specifiers argument when deprecated init is removed.
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -52,6 +53,7 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
                     FunctionParameterSyntax(
                         firstName: "closure",
                         type: AttributedTypeSyntax(
+                            specifiers: [],
                             attributes: AttributeListSyntax {
                                 AttributeSyntax(
                                     atSign: .atSignToken(),
@@ -116,7 +118,9 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {},
                 effectSpecifiers: FunctionEffectSpecifiersSyntax(
-                    throwsSpecifier: .keyword(.throws)
+                    throwsClause: ThrowsClauseSyntax(
+                        throwsSpecifier: .keyword(.throws)
+                    )
                 )
             )
         )
@@ -134,7 +138,9 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
                 parameterClause: FunctionParameterClauseSyntax {},
                 effectSpecifiers: FunctionEffectSpecifiersSyntax(
                     asyncSpecifier: .keyword(.async),
-                    throwsSpecifier: .keyword(.throws)
+                    throwsClause: ThrowsClauseSyntax(
+                        throwsSpecifier: .keyword(.throws)
+                    )
                 )
             )
         )
