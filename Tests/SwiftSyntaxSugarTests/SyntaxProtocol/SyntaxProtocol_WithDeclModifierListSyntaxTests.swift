@@ -1,5 +1,5 @@
 //
-//  SyntaxProtocol_WithDeclModifierListSyntax.swift
+//  SyntaxProtocol_WithDeclModifierListSyntaxTests.swift
 //  SwiftSyntaxSugarTests
 //
 //  Created by Gray Campbell on 7/17/24.
@@ -9,7 +9,7 @@ import SwiftSyntax
 import XCTest
 @testable import SwiftSyntaxSugar
 
-final class SyntaxProtocol_WithDeclModifierListSyntax: XCTestCase {
+final class SyntaxProtocol_WithDeclModifierListSyntaxTests: XCTestCase {
 
     // MARK: Typealiases
 
