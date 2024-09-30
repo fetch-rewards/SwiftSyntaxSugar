@@ -14,7 +14,7 @@ extension DeclModifierListSyntax {
     public var accessLevel: AccessLevelSyntax {
         guard
             let accessLevelModifier = self.first(where: \.isAccessLevel),
-            let accessLevel = AccessLevelSyntax(rawValue: accessLevelModifier.name.text)
+            let accessLevel = AccessLevelSyntax(modifier: accessLevelModifier)
         else {
             return .internal
         }

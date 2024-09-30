@@ -37,10 +37,10 @@ final class VariableDeclSyntax_AccessLevelTests: XCTestCase {
 
     // MARK: With Access Level Tests
 
-    func testWithAccessLevelWithExplicitAccessLevels() {
+    func testWithAccessLevelWithExplicitAccessLevels() throws {
         for oldAccessLevel in AccessLevelSyntax.allCases {
             for newAccessLevel in AccessLevelSyntax.allCases {
-                let sut = SUT(
+                let sut = try SUT(
                     modifiers: DeclModifierListSyntax {
                         oldAccessLevel.modifier
                         DeclModifierSyntax(name: .keyword(.static))
@@ -59,9 +59,9 @@ final class VariableDeclSyntax_AccessLevelTests: XCTestCase {
         }
     }
 
-    func testWithAccessLevelWithImplicitInternalAccessLevel() {
+    func testWithAccessLevelWithImplicitInternalAccessLevel() throws {
         for newAccessLevel in AccessLevelSyntax.allCases {
-            let sut = SUT(
+            let sut = try SUT(
                 modifiers: DeclModifierListSyntax {
                     DeclModifierSyntax(name: .keyword(.static))
                 },

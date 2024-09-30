@@ -18,10 +18,7 @@ extension AccessorBlockSyntax {
         }
 
         return accessorDeclarations.first { accessorDeclaration in
-            let getToken: TokenSyntax = .keyword(.get)
-            let accessorSpecifier = accessorDeclaration.accessorSpecifier
-
-            return accessorSpecifier.text == getToken.text
+            accessorDeclaration.accessorSpecifier.tokenKind == .keyword(.get)
         }
     }
 
@@ -32,10 +29,7 @@ extension AccessorBlockSyntax {
         }
 
         return accessorDeclarations.first { accessorDeclaration in
-            let setToken: TokenSyntax = .keyword(.set)
-            let accessorSpecifier = accessorDeclaration.accessorSpecifier
-
-            return accessorSpecifier.text == setToken.text
+            accessorDeclaration.accessorSpecifier.tokenKind == .keyword(.set)
         }
     }
 

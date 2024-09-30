@@ -21,28 +21,17 @@ extension FunctionDeclSyntax {
     ///   declaration.
     /// - Returns: A copy of the function declaration with the provided access
     ///   level.
-    public func withAccessLevel(_ accessLevel: AccessLevelSyntax) -> FunctionDeclSyntax {
-        let modifiers = DeclModifierListSyntax {
+    public func withAccessLevel(
+        _ accessLevel: AccessLevelSyntax
+    ) throws -> FunctionDeclSyntax {
+        try self.with(\.modifiers) { modifiers in
             if accessLevel != .internal {
                 accessLevel.modifier
             }
 
-            for modifier in self.modifiers where !modifier.isAccessLevel {
+            for modifier in modifiers where !modifier.isAccessLevel {
                 modifier
             }
         }
-
-        return FunctionDeclSyntax(
-            leadingTrivia: self.leadingTrivia,
-            attributes: self.attributes,
-            modifiers: modifiers,
-            funcKeyword: self.funcKeyword,
-            name: self.name,
-            genericParameterClause: self.genericParameterClause,
-            signature: self.signature,
-            genericWhereClause: self.genericWhereClause,
-            body: self.body,
-            trailingTrivia: self.trailingTrivia
-        )
     }
 }

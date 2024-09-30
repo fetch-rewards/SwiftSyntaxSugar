@@ -1,42 +1,42 @@
 //
-//  FunctionDeclSyntax_BodyTests.swift
+//  SyntaxProtocol_WithCodeBlockSyntaxTests.swift
 //  SwiftSyntaxSugarTests
 //
-//  Created by Gray Campbell on 11/4/23.
+//  Created by Gray Campbell on 7/17/24.
 //
 
 import SwiftSyntax
 import XCTest
 @testable import SwiftSyntaxSugar
 
-final class FunctionDeclSyntax_BodyTests: XCTestCase {
+final class SyntaxProtocol_WithCodeBlockSyntaxTests: XCTestCase {
 
     // MARK: Typealiases
 
     typealias SUT = FunctionDeclSyntax
 
-    // MARK: With Body Tests
+    // MARK: With CodeBlockSyntax Tests
 
-    func testWithBody() {
-        let sut = SUT(
-            name: "sut",
-            signature: FunctionSignatureSyntax(
-                parameterClause: FunctionParameterClauseSyntax {}
-            )
-        )
-        .withBody(CodeBlockSyntax {})
-
-        XCTAssertNotNil(sut.body)
-    }
-
-    func testWithBodyBuilder() throws {
+    func testWithCodeBlockSyntax() throws {
         let sut = try SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {}
             )
         )
-        .withBody {}
+        .with(\.body) {}
+
+        XCTAssertNotNil(sut.body)
+    }
+
+    func testWithCodeBlockSyntaxWithClosureParameter() throws {
+        let sut = try SUT(
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
+            )
+        )
+        .with(\.body) { _ in }
 
         XCTAssertNotNil(sut.body)
     }
