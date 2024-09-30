@@ -46,7 +46,9 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
-                throwsSpecifier: .keyword(.throws)
+                throwsClause: ThrowsClauseSyntax(
+                    throwsSpecifier: .keyword(.throws)
+                )
             )
         )
 
@@ -74,7 +76,9 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
         let sut = SUT(
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
-                throwsSpecifier: .keyword(.throws)
+                throwsClause: ThrowsClauseSyntax(
+                    throwsSpecifier: .keyword(.throws)
+                )
             )
         )
 
@@ -96,7 +100,9 @@ final class AccessorDeclSyntax_EffectsTests: XCTestCase {
             accessorSpecifier: .keyword(.get),
             effectSpecifiers: AccessorEffectSpecifiersSyntax(
                 asyncSpecifier: .keyword(.async),
-                throwsSpecifier: .keyword(.throws)
+                throwsClause: ThrowsClauseSyntax(
+                    throwsSpecifier: .keyword(.throws)
+                )
             )
         )
 
