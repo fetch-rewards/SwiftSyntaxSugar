@@ -5,7 +5,7 @@
 //  Created by Gray Campbell on 11/4/23.
 //
 
-import SwiftSyntax
+public import SwiftSyntax
 
 extension ProtocolDeclSyntax {
 
@@ -19,7 +19,7 @@ extension ProtocolDeclSyntax {
         let inheritedTypes = inheritanceClause.inheritedTypes
 
         return inheritedTypes.identifierTypes.contains { identifierType in
-            identifierType.name.trimmed.text == String(describing: Actor.self)
+            identifierType.name.trimmed.text == String(describing: (any Actor).self)
         }
     }
 }
