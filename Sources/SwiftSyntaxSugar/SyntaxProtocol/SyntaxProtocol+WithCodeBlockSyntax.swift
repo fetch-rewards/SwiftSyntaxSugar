@@ -5,7 +5,7 @@
 //  Created by Gray Campbell on 7/17/24.
 //
 
-import SwiftSyntax
+public import SwiftSyntax
 import SwiftSyntaxBuilder
 
 extension SyntaxProtocol {
