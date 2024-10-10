@@ -20,7 +20,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-syntax.git",
-            from: "600.0.0"
+            from: "600.0.1"
         ),
     ],
     targets: [
@@ -29,11 +29,29 @@ let package = Package(
             dependencies: [
                 .product(name: "SwiftSyntax", package: "swift-syntax"),
                 .product(name: "SwiftSyntaxBuilder", package: "swift-syntax"),
-            ]
+            ],
+            swiftSettings: .default
         ),
         .testTarget(
             name: "SwiftSyntaxSugarTests",
-            dependencies: ["SwiftSyntaxSugar"]
+            dependencies: ["SwiftSyntaxSugar"],
+            swiftSettings: .default
         ),
     ]
 )
+
+// MARK: - Swift Settings
+
+extension SwiftSetting {
+    static let internalImportsByDefault: SwiftSetting = .enableUpcomingFeature("InternalImportsByDefault")
+    static let existentialAny: SwiftSetting = .enableUpcomingFeature("ExistentialAny")
+}
+
+extension Array where Element == SwiftSetting {
+
+    /// Default Swift settings to enable for targets.
+    static let `default`: [SwiftSetting] = [
+        .existentialAny,
+        .internalImportsByDefault
+    ]
+}

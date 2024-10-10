@@ -5,7 +5,7 @@
 //  Created by Gray Campbell on 11/3/23.
 //
 
-import SwiftSyntax
+public import SwiftSyntax
 
 extension AccessorDeclSyntax {
 

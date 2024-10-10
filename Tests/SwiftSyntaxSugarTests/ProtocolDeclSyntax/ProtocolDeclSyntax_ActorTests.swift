@@ -28,7 +28,7 @@ final class ProtocolDeclSyntax_ActorTests: XCTestCase {
             name: "SUT",
             inheritanceClause: InheritanceClauseSyntax {
                 InheritedTypeSyntax(type: TypeSyntax(describing: (any Hashable).self))
-                InheritedTypeSyntax(type: TypeSyntax(describing: Actor.self))
+                InheritedTypeSyntax(type: TypeSyntax(describing: (any Actor).self))
                 InheritedTypeSyntax(type: TypeSyntax(describing: (any Identifiable).self))
             }
         ) {}
