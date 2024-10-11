@@ -62,7 +62,7 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
                         AttributeSyntax(
                             atSign: .atSignToken(),
                             attributeName: IdentifierTypeSyntax(
-                                name: .keyword(.escaping)
+                                name: .keyword(.Sendable)
                             )
                         )
                     },
@@ -81,7 +81,7 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
 
         XCTAssertEqual(
             tupleTypeSyntax.description,
-            "(integer:Int,closure:(String,Bool)->Void)"
+            "(integer:Int,closure:@Sendable(String,Bool)->Void)"
         )
     }
 

@@ -49,8 +49,27 @@ extension FunctionParameterListSyntax {
         return TupleTypeSyntax(
             elements: TupleTypeElementListSyntax {
                 for parameter in self {
-                    let attributedType = parameter.type.as(AttributedTypeSyntax.self)
-                    let type = attributedType?.baseType ?? parameter.type
+                    let type: any TypeSyntaxProtocol = {
+                        var type: any TypeSyntaxProtocol
+                        if let attributedType = parameter.type.as(AttributedTypeSyntax.self) {
+                            let filteredModifiers = attributedType.attributes.filter { attribute in
+                                guard case .attribute(let syntax) = attribute else { return false }
+                                let attributeName = syntax.attributeName
+                                    .as(IdentifierTypeSyntax.self)?
+                                    .name.trimmed.text
+                                let disallowedKeywords: [Keyword] = [.escaping, .autoclosure]
+                                return !disallowedKeywords
+                                    .map { TokenSyntax.keyword($0).text }
+                                    .contains(attributeName)
+                            }
+                            type = attributedType
+                                .with(\.specifiers, [])
+                                .with(\.attributes, filteredModifiers)
+                        } else {
+                            type = parameter.type
+                        }
+                        return type
+                    }()
 
                     if self.count == 1 {
                         TupleTypeElementSyntax(type: type)
