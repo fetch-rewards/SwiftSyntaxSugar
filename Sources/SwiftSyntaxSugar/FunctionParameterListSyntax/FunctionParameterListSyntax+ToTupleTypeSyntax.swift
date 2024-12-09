@@ -50,7 +50,12 @@ extension FunctionParameterListSyntax {
             elements: TupleTypeElementListSyntax {
                 for parameter in self {
                     let attributedType = parameter.type.as(AttributedTypeSyntax.self)
-                    let type = attributedType?.baseType ?? parameter.type
+                    let parameterType = attributedType?.baseType ?? parameter.type
+                    let type: any TypeSyntaxProtocol = if parameter.isVariadic {
+                        ArrayTypeSyntax(element: parameterType)
+                    } else {
+                        parameterType
+                    }
 
                     if self.count == 1 {
                         TupleTypeElementSyntax(type: type)

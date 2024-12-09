@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
+struct FunctionParameterListSyntax_ToTupleTypeSyntaxTests {
 
     // MARK: Typealiases
 
@@ -17,17 +17,19 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
 
     // MARK: To TupleTypeSyntax Tests
 
-    func testToTupleTypeSyntaxWithOneParameters() throws {
+    @Test
+    func toTupleTypeSyntaxWithOneParameter() throws {
         let sut = SUT {
             FunctionParameterSyntax(firstName: "integer", type: .int)
         }
 
-        let tupleTypeSyntax = try XCTUnwrap(sut.toTupleTypeSyntax())
+        let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
 
-        XCTAssertEqual(tupleTypeSyntax.description, "(Int)")
+        #expect(tupleTypeSyntax.description == "(Int)")
     }
 
-    func testToTupleTypeSyntaxWithMultipleParameters() throws {
+    @Test
+    func toTupleTypeSyntaxWithMultipleParameters() throws {
         let sut = SUT {
             FunctionParameterSyntax(firstName: "integer", type: .int)
             FunctionParameterSyntax(
@@ -42,15 +44,15 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
             )
         }
 
-        let tupleTypeSyntax = try XCTUnwrap(sut.toTupleTypeSyntax())
+        let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
 
-        XCTAssertEqual(
-            tupleTypeSyntax.description,
-            "(integer:Int,closure:(String,Bool)->Void)"
+        #expect(
+            tupleTypeSyntax.description == "(integer:Int,closure:(String,Bool)->Void)"
         )
     }
 
-    func testToTupleTypeSyntaxWithAttributedParameters() throws {
+    @Test
+    func toTupleTypeSyntaxWithAttributedParameters() throws {
         // TODO: Remove AttributedTypeSyntax specifiers argument when deprecated init is removed.
         let sut = SUT {
             FunctionParameterSyntax(firstName: "integer", type: .int)
@@ -77,17 +79,32 @@ final class FunctionParameterListSyntax_ToTupleTypeSyntaxTests: XCTestCase {
             )
         }
 
-        let tupleTypeSyntax = try XCTUnwrap(sut.toTupleTypeSyntax())
+        let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
 
-        XCTAssertEqual(
-            tupleTypeSyntax.description,
-            "(integer:Int,closure:(String,Bool)->Void)"
+        #expect(
+            tupleTypeSyntax.description == "(integer:Int,closure:(String,Bool)->Void)"
         )
     }
 
-    func testToFunctionTypeSyntaxWithoutParameters() {
+    @Test
+    func toTupleTypeSyntaxWithVariadicParameter() throws {
+        let sut = SUT {
+            FunctionParameterSyntax(
+                firstName: "integer",
+                type: .int,
+                ellipsis: .ellipsisToken()
+            )
+        }
+
+        let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
+
+        #expect(tupleTypeSyntax.description == "([Int])")
+    }
+
+    @Test
+    func toTupleTypeSyntaxWithoutParameters() {
         let sut = SUT()
 
-        XCTAssertNil(sut.toTupleTypeSyntax())
+        #expect(sut.toTupleTypeSyntax() == nil)
     }
 }
