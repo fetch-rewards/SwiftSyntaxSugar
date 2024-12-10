@@ -8,7 +8,7 @@
 public import SwiftSyntax
 
 /// An access level.
-public enum AccessLevelSyntax: String, CaseIterable, Hashable {
+public enum AccessLevelSyntax: String, CaseIterable, Hashable, Sendable {
 
     // MARK: Cases
 
