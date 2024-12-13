@@ -47,30 +47,30 @@ struct AccessLevelSyntaxTests {
 
     @Test(arguments: SUT.allCases)
     func token(sut: SUT) {
-        let expectedTokenText = switch sut {
-        case .fileprivate: "fileprivate"
-        case .internal: "internal"
-        case .open: "open"
-        case .package: "package"
-        case .private: "private"
-        case .public: "public"
+        let expectedTokenKind: TokenKind = switch sut {
+        case .fileprivate: .keyword(.fileprivate)
+        case .internal: .keyword(.internal)
+        case .open: .keyword(.open)
+        case .package: .keyword(.package)
+        case .private: .keyword(.private)
+        case .public: .keyword(.public)
         }
 
-        #expect(sut.token.text == expectedTokenText)
+        #expect(sut.token.tokenKind == expectedTokenKind)
     }
 
     @Test(arguments: SUT.allCases)
     func modifier(sut: SUT) {
-        let expectedModifierNameText = switch sut {
-        case .fileprivate: "fileprivate"
-        case .internal: "internal"
-        case .open: "open"
-        case .package: "package"
-        case .private: "private"
-        case .public: "public"
+        let expectedModifierTokenKind: TokenKind = switch sut {
+        case .fileprivate: .keyword(.fileprivate)
+        case .internal: .keyword(.internal)
+        case .open: .keyword(.open)
+        case .package: .keyword(.package)
+        case .private: .keyword(.private)
+        case .public: .keyword(.public)
         }
 
-        #expect(sut.modifier.name.text == expectedModifierNameText)
+        #expect(sut.modifier.name.tokenKind == expectedModifierTokenKind)
     }
 
     // MARK: Raw Value Initializer Tests
