@@ -19,7 +19,7 @@ struct ClassDeclSyntax_AccessLevelTests {
 
     @Test(arguments: AccessLevelSyntax.allCases)
     func accessLevelWithExplicitAccessLevelModifier(
-        for accessLevel: AccessLevelSyntax
+        from accessLevel: AccessLevelSyntax
     ) {
         let modifiers = DeclModifierListSyntax {
             accessLevel.modifier
