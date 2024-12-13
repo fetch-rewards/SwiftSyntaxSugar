@@ -18,7 +18,9 @@ struct ClassDeclSyntax_AccessLevelTests {
     // MARK: Access Level Tests
 
     @Test(arguments: AccessLevelSyntax.allCases)
-    func accessLevelWithExplicitAccessLevel(_ accessLevel: AccessLevelSyntax) {
+    func accessLevelWithExplicitAccessLevelModifier(
+        for accessLevel: AccessLevelSyntax
+    ) {
         let modifiers = DeclModifierListSyntax {
             accessLevel.modifier
             DeclModifierSyntax(name: .keyword(.final))
@@ -29,7 +31,7 @@ struct ClassDeclSyntax_AccessLevelTests {
     }
 
     @Test
-    func accessLevelWithImplicitInternalAccessLevel() {
+    func accessLevelWithImplicitInternalAccessLevelModifier() {
         let modifiers = DeclModifierListSyntax {
             DeclModifierSyntax(name: .keyword(.final))
         }
