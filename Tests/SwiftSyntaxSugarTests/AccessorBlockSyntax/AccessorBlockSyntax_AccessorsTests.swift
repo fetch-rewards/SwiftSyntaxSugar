@@ -7,10 +7,10 @@
 
 import SwiftSyntax
 import SwiftSyntaxBuilder
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
+struct AccessorBlockSyntax_AccessorsTests {
 
     // MARK: Typealiases
 
@@ -18,97 +18,109 @@ final class AccessorBlockSyntax_AccessorsTests: XCTestCase {
 
     // MARK: Get Accessor Declaration Tests
 
-    func testGetAccessorDeclarationWithAccessorsWithGetAccessor() {
+    @Test
+    func getAccessorDeclarationWithAccessorsWithGetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertNotNil(sut.getAccessorDeclaration)
+        #expect(sut.getAccessorDeclaration != nil)
     }
 
-    func testGetAccessorDeclarationWithAccessorsWithoutGetAccessor() {
+    @Test
+    func getAccessorDeclarationWithAccessorsWithoutGetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.set))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertNil(sut.getAccessorDeclaration)
+        #expect(sut.getAccessorDeclaration == nil)
     }
 
-    func testGetAccessorDeclarationWithGetter() {
+    @Test
+    func getAccessorDeclarationWithGetter() {
         let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
-        XCTAssertNil(sut.getAccessorDeclaration)
+        #expect(sut.getAccessorDeclaration == nil)
     }
 
     // MARK: Set Accessor Declaration Tests
 
-    func testSetAccessorDeclarationWithAccessorsWithSetAccessor() {
+    @Test
+    func setAccessorDeclarationWithAccessorsWithSetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.set))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertNotNil(sut.setAccessorDeclaration)
+        #expect(sut.setAccessorDeclaration != nil)
     }
 
-    func testSetAccessorDeclarationWithAccessorsWithoutSetAccessor() {
+    @Test
+    func setAccessorDeclarationWithAccessorsWithoutSetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertNil(sut.setAccessorDeclaration)
+        #expect(sut.setAccessorDeclaration == nil)
     }
 
-    func testSetAccessorDeclarationWithGetter() {
+    @Test
+    func setAccessorDeclarationWithGetter() {
         let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
-        XCTAssertNil(sut.setAccessorDeclaration)
+        #expect(sut.setAccessorDeclaration == nil)
     }
 
     // MARK: Contains Get Accessor Tests
 
-    func testContainsGetAccessorWithAccessorsWithGetAccessor() {
+    @Test
+    func containsGetAccessorWithAccessorsWithGetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertTrue(sut.containsGetAccessor)
+        #expect(sut.containsGetAccessor)
     }
 
-    func testContainsGetAccessorWithAccessorsWithoutGetAccessor() {
+    @Test
+    func containsGetAccessorWithAccessorsWithoutGetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.set))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertFalse(sut.containsGetAccessor)
+        #expect(!sut.containsGetAccessor)
     }
 
-    func testContainsGetAccessorWithGetter() {
+    @Test
+    func containsGetAccessorWithGetter() {
         let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
-        XCTAssertFalse(sut.containsGetAccessor)
+        #expect(!sut.containsGetAccessor)
     }
 
     // MARK: Contains Set Accessor Tests
 
-    func testContainsSetAccessorWithAccessorsWithSetAccessor() {
+    @Test
+    func containsSetAccessorWithAccessorsWithSetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.set))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertTrue(sut.containsSetAccessor)
+        #expect(sut.containsSetAccessor)
     }
 
-    func testContainsSetAccessorWithAccessorsWithoutSetAccessor() {
+    @Test
+    func containsSetAccessorWithAccessorsWithoutSetAccessor() {
         let accessor = AccessorDeclSyntax(accessorSpecifier: .keyword(.get))
         let accessors = AccessorDeclListSyntax { accessor }
         let sut = SUT(accessors: .accessors(accessors))
 
-        XCTAssertFalse(sut.containsSetAccessor)
+        #expect(!sut.containsSetAccessor)
     }
 
-    func testContainsSetAccessorWithGetter() {
+    @Test
+    func containsSetAccessorWithGetter() {
         let sut = SUT(accessors: .getter(CodeBlockItemListSyntax()))
 
-        XCTAssertFalse(sut.containsSetAccessor)
+        #expect(!sut.containsSetAccessor)
     }
 }
