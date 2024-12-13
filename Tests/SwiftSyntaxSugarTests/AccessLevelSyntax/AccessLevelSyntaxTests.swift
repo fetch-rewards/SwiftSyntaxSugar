@@ -18,7 +18,7 @@ struct AccessLevelSyntaxTests {
     // MARK: Property Tests
 
     @Test(arguments: SUT.allCases)
-    func rawValues(sut: SUT) {
+    func rawValue(sut: SUT) {
         let expectedRawValue = switch sut {
         case .fileprivate: "fileprivate"
         case .internal: "internal"
@@ -32,7 +32,7 @@ struct AccessLevelSyntaxTests {
     }
 
     @Test(arguments: SUT.allCases)
-    func keywords(sut: SUT) {
+    func keyword(sut: SUT) {
         let expectedKeyword: Keyword = switch sut {
         case .fileprivate: .fileprivate
         case .internal: .internal
@@ -46,7 +46,7 @@ struct AccessLevelSyntaxTests {
     }
 
     @Test(arguments: SUT.allCases)
-    func tokens(sut: SUT) {
+    func token(sut: SUT) {
         let expectedTokenText = switch sut {
         case .fileprivate: "fileprivate"
         case .internal: "internal"
@@ -60,7 +60,7 @@ struct AccessLevelSyntaxTests {
     }
 
     @Test(arguments: SUT.allCases)
-    func modifiers(sut: SUT) {
+    func modifier(sut: SUT) {
         let expectedModifierNameText = switch sut {
         case .fileprivate: "fileprivate"
         case .internal: "internal"
@@ -76,12 +76,12 @@ struct AccessLevelSyntaxTests {
     // MARK: Raw Value Initializer Tests
 
     @Test(arguments: SUT.allCases)
-    func initWithRawValueWithValidRawValues(sut: SUT) {
+    func initWithRawValueWithValidRawValue(from sut: SUT) {
         #expect(SUT(rawValue: sut.rawValue) == sut)
     }
 
     @Test
-    func initWithRawValueWithInvalidRawValues() {
+    func initWithRawValueWithInvalidRawValue() {
         let sut = SUT(rawValue: "sut")
 
         #expect(sut == nil)
@@ -90,12 +90,12 @@ struct AccessLevelSyntaxTests {
     // MARK: Token Initializer Tests
 
     @Test(arguments: SUT.allCases)
-    func initWithTokenWithValidTokens(sut: SUT) {
+    func initWithTokenWithValidToken(from sut: SUT) {
         #expect(SUT(token: sut.token) == sut)
     }
 
     @Test
-    func initWithTokenWithInvalidTokens() {
+    func initWithTokenWithInvalidToken() {
         let sut = SUT(token: "sut")
 
         #expect(sut == nil)
@@ -104,12 +104,12 @@ struct AccessLevelSyntaxTests {
     // MARK: Modifier Initializer Tests
 
     @Test(arguments: SUT.allCases)
-    func initWithModifierWithValidModifiers(sut: SUT) {
+    func initWithModifierWithValidModifier(from sut: SUT) {
         #expect(SUT(modifier: sut.modifier) == sut)
     }
 
     @Test
-    func initWithModifierWithInvalidModifiers() {
+    func initWithModifierWithInvalidModifier() {
         let sut = SUT(modifier: DeclModifierSyntax(name: .keyword(.static)))
 
         #expect(sut == nil)
