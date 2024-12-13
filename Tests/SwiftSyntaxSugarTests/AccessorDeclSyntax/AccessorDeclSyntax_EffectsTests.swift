@@ -74,7 +74,7 @@ struct AccessorDeclSyntax_EffectsTests {
         let awaitKeywordToken = try #require(invocationKeywordTokens.first)
 
         #expect(invocationKeywordTokens.count == 1)
-        #expect(awaitKeywordToken.text == "await")
+        #expect(awaitKeywordToken.tokenKind == .keyword(.await))
     }
 
     @Test
@@ -92,7 +92,7 @@ struct AccessorDeclSyntax_EffectsTests {
         let tryKeywordToken = try #require(invocationKeywordTokens.first)
 
         #expect(invocationKeywordTokens.count == 1)
-        #expect(tryKeywordToken.text == "try")
+        #expect(tryKeywordToken.tokenKind == .keyword(.try))
     }
 
     @Test
@@ -119,7 +119,7 @@ struct AccessorDeclSyntax_EffectsTests {
         let awaitKeywordToken = try #require(invocationKeywordTokens.last)
 
         #expect(invocationKeywordTokens.count == 2)
-        #expect(tryKeywordToken.text == "try")
-        #expect(awaitKeywordToken.text == "await")
+        #expect(tryKeywordToken.tokenKind == .keyword(.try))
+        #expect(awaitKeywordToken.tokenKind == .keyword(.await))
     }
 }
