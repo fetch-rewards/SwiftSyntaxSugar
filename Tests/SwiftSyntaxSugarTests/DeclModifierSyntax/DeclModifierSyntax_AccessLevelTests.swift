@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class DeclModifierSyntax_AccessLevelTests: XCTestCase {
+struct DeclModifierSyntax_AccessLevelTests {
 
     // MARK: Typealiases
 
@@ -17,21 +17,19 @@ final class DeclModifierSyntax_AccessLevelTests: XCTestCase {
 
     // MARK: Is Access Level Tests
 
-    func testIsAccessLevelWithAccessLevelModifiers() {
-        for accessLevel in AccessLevelSyntax.allCases {
-            let sut = SUT(name: accessLevel.token)
+    @Test(arguments: AccessLevelSyntax.allCases)
+    func isAccessLevelWithAccessLevelModifier(
+        from accessLevel: AccessLevelSyntax
+    ) {
+        let sut = SUT(name: accessLevel.token)
 
-            XCTAssertTrue(sut.isAccessLevel)
-        }
+        #expect(sut.isAccessLevel)
     }
 
-    func testIsAccessLevelWithNonAccessLevelModifiers() {
-        let keywords: [Keyword] = [.class, .lazy, .static]
+    @Test(arguments: [Keyword.class, Keyword.lazy, Keyword.static])
+    func isAccessLevelWithNonAccessLevelModifier(keyword: Keyword) {
+        let sut = SUT(name: .keyword(keyword))
 
-        for keyword in keywords {
-            let sut = SUT(name: .keyword(keyword))
-
-            XCTAssertFalse(sut.isAccessLevel)
-        }
+        #expect(!sut.isAccessLevel)
     }
 }
