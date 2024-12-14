@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class FunctionTypeSyntax_EscapingTests: XCTestCase {
+struct FunctionTypeSyntax_EscapingTests {
 
     // MARK: Typealiases
 
@@ -17,15 +17,16 @@ final class FunctionTypeSyntax_EscapingTests: XCTestCase {
 
     // MARK: Escaping Tests
 
-    func testEscaping() {
+    @Test
+    func escaping() {
         let sut = SUT(
             parameters: TupleTypeElementListSyntax(),
             returnClause: ReturnClauseSyntax(type: .bool)
         )
 
-        XCTAssertEqual(
-            sut.escaping().description,
-            "@escaping()->Bool"
-        )
+        let sutEscaping = sut.escaping()
+        let expectedDescription = "@escaping()->Bool"
+
+        #expect(sutEscaping.description == expectedDescription)
     }
 }
