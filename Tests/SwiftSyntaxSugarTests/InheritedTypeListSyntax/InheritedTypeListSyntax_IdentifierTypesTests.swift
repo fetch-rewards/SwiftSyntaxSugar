@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class InheritedTypeListSyntax_IdentifierTypesTests: XCTestCase {
+struct InheritedTypeListSyntax_IdentifierTypesTests {
 
     // MARK: Typealiases
 
@@ -17,7 +17,8 @@ final class InheritedTypeListSyntax_IdentifierTypesTests: XCTestCase {
 
     // MARK: Identifier Types Tests
 
-    func testIdentifierTypes() {
+    @Test
+    func identifierTypes() {
         let sut = SUT {
             InheritedTypeSyntax(
                 type: IdentifierTypeSyntax(name: "Hashable")
@@ -27,9 +28,13 @@ final class InheritedTypeListSyntax_IdentifierTypesTests: XCTestCase {
             )
         }
 
-        XCTAssertEqual(
-            sut.identifierTypes.map(\.name.text),
-            ["Hashable", "Identifiable"]
-        )
+        let identifierTypes = sut.identifierTypes
+        let identifierTypeTokenKinds = identifierTypes.map(\.name.tokenKind)
+        let expectedIdentifierTypeTokenKinds: [TokenKind] = [
+            .identifier("Hashable"),
+            .identifier("Identifiable"),
+        ]
+
+        #expect(identifierTypeTokenKinds == expectedIdentifierTypeTokenKinds)
     }
 }
