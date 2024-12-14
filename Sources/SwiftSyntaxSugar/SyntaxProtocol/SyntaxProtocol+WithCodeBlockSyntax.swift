@@ -21,11 +21,12 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax>,
-        @CodeBlockItemListBuilder statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder
+        statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
     ) throws -> Self {
-        try self.with(
+        self.with(
             keyPath,
-            CodeBlockSyntax(statementsBuilder: statementsBuilder)
+            try CodeBlockSyntax(statementsBuilder: statementsBuilder)
         )
     }
 
@@ -40,8 +41,8 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax>,
-        @CodeBlockItemListBuilder statementsBuilder: @escaping (CodeBlockSyntax) throws
-            -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder
+        statementsBuilder: @escaping (CodeBlockSyntax) throws -> CodeBlockItemListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try statementsBuilder(self[keyPath: keyPath])
@@ -59,11 +60,12 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax?>,
-        @CodeBlockItemListBuilder statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder
+        statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
     ) throws -> Self {
-        try self.with(
+        self.with(
             keyPath,
-            CodeBlockSyntax(statementsBuilder: statementsBuilder)
+            try CodeBlockSyntax(statementsBuilder: statementsBuilder)
         )
     }
 
@@ -78,8 +80,8 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax?>,
-        @CodeBlockItemListBuilder statementsBuilder: @escaping (CodeBlockSyntax?) throws
-            -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder
+        statementsBuilder: @escaping (CodeBlockSyntax?) throws -> CodeBlockItemListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try statementsBuilder(self[keyPath: keyPath])
