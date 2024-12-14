@@ -67,7 +67,7 @@
 --typeblanklines preserve
 
 ## Property @attributes: preserve, prev-line, or same-line.
---varattributes same-line
+--varattributes preserve
 
 ## Wrap all arguments: before-first, after-first, preserve.
 --wraparguments before-first
@@ -195,20 +195,10 @@
 ## Ensure file name in header comment matches the actual file name.
 --rules headerFileName
 
-## Move inline await keyword(s) to start of expression.
-### Options: 
-###   --asynccapturing
---rules hoistAwait
-
 ## Reposition let or var bindings within pattern.
 ### Options: 
 ###   --patternlet (default: hoist)
 --rules hoistPatternLet
-
-## Move inline try keyword(s) to start of expression.
-### Options: 
-###   --throwcapturing
---rules hoistTry
 
 ## Indent code in accordance with the scope level.
 ### Options: 
