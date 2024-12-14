@@ -20,7 +20,7 @@ struct FunctionParameterSyntax_IsVariadicTests {
     @Test
     func isVariadicWhenEllipsisIsNil() {
         let sut = SUT(
-            firstName: .identifier("parameter"),
+            firstName: "parameter",
             colon: .colonToken(),
             type: .int
         )
@@ -31,7 +31,7 @@ struct FunctionParameterSyntax_IsVariadicTests {
     @Test
     func isVariadicWhenEllipsisIsNotNil() {
         let sut = SUT(
-            firstName: .identifier("parameter"),
+            firstName: "parameter",
             colon: .colonToken(),
             type: .int,
             ellipsis: .ellipsisToken()
