@@ -18,7 +18,9 @@ struct InitializerDeclSyntax_AccessLevelTests {
     // MARK: Access Level Tests
 
     @Test(arguments: AccessLevelSyntax.allCases)
-    func accessLevelWithExplicitAccessLevel(_ accessLevel: AccessLevelSyntax) {
+    func accessLevelWithExplicitAccessLevelModifier(
+        from accessLevel: AccessLevelSyntax
+    ) {
         let sut = SUT(
             modifiers: DeclModifierListSyntax { accessLevel.modifier },
             signature: FunctionSignatureSyntax(
@@ -30,7 +32,7 @@ struct InitializerDeclSyntax_AccessLevelTests {
     }
 
     @Test
-    func accessLevelWithImplicitInternalAccessLevel() {
+    func accessLevelWithImplicitInternalAccessLevelModifier() {
         let sut = SUT(
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {}
@@ -43,7 +45,7 @@ struct InitializerDeclSyntax_AccessLevelTests {
     // MARK: With Access Level Tests
 
     @Test(arguments: AccessLevelSyntax.allCases, AccessLevelSyntax.allCases)
-    func withAccessLevelWithExplicitAccessLevels(
+    func withAccessLevelWithExplicitAccessLevelModifier(
         oldAccessLevel: AccessLevelSyntax,
         newAccessLevel: AccessLevelSyntax
     ) throws {
@@ -64,7 +66,7 @@ struct InitializerDeclSyntax_AccessLevelTests {
     }
 
     @Test(arguments: AccessLevelSyntax.allCases)
-    func withAccessLevelWithImplicitInternalAccessLevel(
+    func withAccessLevelWithImplicitInternalAccessLevelModifier(
         newAccessLevel: AccessLevelSyntax
     ) throws {
         let sut = try SUT(
