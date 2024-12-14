@@ -22,7 +22,11 @@ extension TypeSyntax {
     /// TypeSyntax(describing: Int.self)
     /// ```
     public init(describing subject: some Any) {
-        self.init(stringLiteral: String(describing: subject))
+        let identifier = String(describing: subject)
+
+        self.init(
+            IdentifierTypeSyntax(name: .identifier(identifier))
+        )
     }
 }
 
