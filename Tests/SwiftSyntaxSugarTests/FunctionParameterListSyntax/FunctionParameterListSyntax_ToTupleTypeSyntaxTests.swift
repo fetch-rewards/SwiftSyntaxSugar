@@ -24,8 +24,9 @@ struct FunctionParameterListSyntax_ToTupleTypeSyntaxTests {
         }
 
         let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
+        let expectedDescription = "(Int)"
 
-        #expect(tupleTypeSyntax.description == "(Int)")
+        #expect(tupleTypeSyntax.description == expectedDescription)
     }
 
     @Test
@@ -45,10 +46,9 @@ struct FunctionParameterListSyntax_ToTupleTypeSyntaxTests {
         }
 
         let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
+        let expectedDescription = "(integer:Int,closure:(String,Bool)->Void)"
 
-        #expect(
-            tupleTypeSyntax.description == "(integer:Int,closure:(String,Bool)->Void)"
-        )
+        #expect(tupleTypeSyntax.description == expectedDescription)
     }
 
     @Test
@@ -80,10 +80,9 @@ struct FunctionParameterListSyntax_ToTupleTypeSyntaxTests {
         }
 
         let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
+        let expectedDescription = "(integer:Int,closure:(String,Bool)->Void)"
 
-        #expect(
-            tupleTypeSyntax.description == "(integer:Int,closure:(String,Bool)->Void)"
-        )
+        #expect(tupleTypeSyntax.description == expectedDescription)
     }
 
     @Test
@@ -97,8 +96,9 @@ struct FunctionParameterListSyntax_ToTupleTypeSyntaxTests {
         }
 
         let tupleTypeSyntax = try #require(sut.toTupleTypeSyntax())
+        let expectedDescription = "([Int])"
 
-        #expect(tupleTypeSyntax.description == "([Int])")
+        #expect(tupleTypeSyntax.description == expectedDescription)
     }
 
     @Test
