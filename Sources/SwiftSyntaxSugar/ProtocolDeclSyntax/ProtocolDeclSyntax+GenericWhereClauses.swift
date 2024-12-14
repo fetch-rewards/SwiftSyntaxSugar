@@ -19,7 +19,9 @@ extension ProtocolDeclSyntax {
         }
 
         for associatedTypeDeclaration in self.associatedTypeDeclarations {
-            guard let genericWhereClause = associatedTypeDeclaration.genericWhereClause else {
+            guard
+                let genericWhereClause = associatedTypeDeclaration.genericWhereClause
+            else {
                 continue
             }
 

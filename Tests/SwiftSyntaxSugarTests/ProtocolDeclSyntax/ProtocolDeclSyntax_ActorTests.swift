@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class ProtocolDeclSyntax_ActorTests: XCTestCase {
+struct ProtocolDeclSyntax_ActorTests {
 
     // MARK: Typealiases
 
@@ -17,13 +17,15 @@ final class ProtocolDeclSyntax_ActorTests: XCTestCase {
 
     // MARK: Is Actor Constrained Tests
 
-    func testIsActorConstrainedWithNilInheritanceClause() {
+    @Test
+    func isActorConstrainedWithNilInheritanceClause() {
         let sut = SUT(name: "SUT") {}
 
-        XCTAssertFalse(sut.isActorConstrained)
+        #expect(!sut.isActorConstrained)
     }
 
-    func testIsActorConstrainedWithNonNilInheritanceClauseWithActorConformance() {
+    @Test
+    func isActorConstrainedWithNonNilInheritanceClauseWithActorConformance() {
         let sut = SUT(
             name: "SUT",
             inheritanceClause: InheritanceClauseSyntax {
@@ -33,10 +35,11 @@ final class ProtocolDeclSyntax_ActorTests: XCTestCase {
             }
         ) {}
 
-        XCTAssertTrue(sut.isActorConstrained)
+        #expect(sut.isActorConstrained)
     }
 
-    func testIsActorConstrainedWithNonNilInheritanceClauseWithoutActorConformance() {
+    @Test
+    func isActorConstrainedWithNonNilInheritanceClauseWithoutActorConformance() {
         let sut = SUT(
             name: "SUT",
             inheritanceClause: InheritanceClauseSyntax {
@@ -45,6 +48,6 @@ final class ProtocolDeclSyntax_ActorTests: XCTestCase {
             }
         ) {}
 
-        XCTAssertFalse(sut.isActorConstrained)
+        #expect(!sut.isActorConstrained)
     }
 }

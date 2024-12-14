@@ -6,12 +6,34 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class ProtocolDeclSyntax_GenericWhereClausesTests: XCTestCase {
+struct ProtocolDeclSyntax_GenericWhereClausesTests {
 
     // MARK: Typealiases
 
     typealias SUT = ProtocolDeclSyntax
+
+    // MARK: Generic Where Clauses Tests
+
+    @Test
+    func genericWhereClauses() throws {
+        let sut = SUT(
+            name: "SUT",
+            genericWhereClause: GenericWhereClauseSyntax {}
+        ) {
+            AssociatedTypeDeclSyntax(
+                name: "A",
+                genericWhereClause: GenericWhereClauseSyntax {}
+            )
+            AssociatedTypeDeclSyntax(name: "B")
+            AssociatedTypeDeclSyntax(
+                name: "C",
+                genericWhereClause: GenericWhereClauseSyntax {}
+            )
+        }
+
+        #expect(sut.genericWhereClauses.count == 3)
+    }
 }

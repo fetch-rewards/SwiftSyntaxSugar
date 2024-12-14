@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class ProtocolDeclSyntax_AssociatedTypesTests: XCTestCase {
+struct ProtocolDeclSyntax_AssociatedTypesTests {
 
     // MARK: Typealiases
 
@@ -17,13 +17,15 @@ final class ProtocolDeclSyntax_AssociatedTypesTests: XCTestCase {
 
     // MARK: Associated Type Declarations Tests
 
-    func testAssociatedTypeDeclarationsWithEmptyMemberBlock() {
+    @Test
+    func associatedTypeDeclarationsWithEmptyMemberBlock() {
         let sut = SUT(name: "SUT") {}
 
-        XCTAssertTrue(sut.associatedTypeDeclarations.isEmpty)
+        #expect(sut.associatedTypeDeclarations.isEmpty)
     }
 
-    func testAssociatedTypeDeclarationsWithNonEmptyMemberBlockWithAssociatedTypes() {
+    @Test
+    func associatedTypeDeclarationsWithNonEmptyMemberBlockWithAssociatedTypes() {
         let sut = SUT(name: "SUT") {
             VariableDeclSyntax(.var, name: "a")
             AssociatedTypeDeclSyntax(name: "A")
@@ -31,15 +33,16 @@ final class ProtocolDeclSyntax_AssociatedTypesTests: XCTestCase {
             AssociatedTypeDeclSyntax(name: "B")
         }
 
-        XCTAssertEqual(sut.associatedTypeDeclarations.count, 2)
+        #expect(sut.associatedTypeDeclarations.count == 2)
     }
 
-    func testAssociatedTypeDeclarationsWithNonEmptyMemberBlockWithoutAssociatedTypes() {
+    @Test
+    func associatedTypeDeclarationsWithNonEmptyMemberBlockWithoutAssociatedTypes() {
         let sut = SUT(name: "SUT") {
             VariableDeclSyntax(.var, name: "a")
             VariableDeclSyntax(.var, name: "b")
         }
 
-        XCTAssertTrue(sut.associatedTypeDeclarations.isEmpty)
+        #expect(sut.associatedTypeDeclarations.isEmpty)
     }
 }
