@@ -1,8 +1,8 @@
 //
 //  InitializerDeclSyntax+AccessLevel.swift
-//  SwiftSyntaxSugar
 //
-//  Created by Gray Campbell on 12/9/24.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 public import SwiftSyntax

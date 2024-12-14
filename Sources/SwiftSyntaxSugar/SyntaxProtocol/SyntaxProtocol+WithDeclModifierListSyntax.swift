@@ -1,8 +1,8 @@
 //
 //  SyntaxProtocol+WithDeclModifierListSyntax.swift
-//  SwiftSyntax
 //
-//  Created by Gray Campbell on 7/17/24.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 public import SwiftSyntax
@@ -21,12 +21,11 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax>,
-        @DeclModifierListBuilder
-        itemsBuilder: @escaping () throws -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping () throws -> DeclModifierListSyntax
     ) throws -> Self {
-        self.with(
+        try self.with(
             keyPath,
-            try DeclModifierListSyntax(itemsBuilder: itemsBuilder)
+            DeclModifierListSyntax(itemsBuilder: itemsBuilder)
         )
     }
 
@@ -41,8 +40,8 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax>,
-        @DeclModifierListBuilder
-        itemsBuilder: @escaping (DeclModifierListSyntax) throws -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping (DeclModifierListSyntax) throws
+            -> DeclModifierListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try itemsBuilder(self[keyPath: keyPath])
@@ -60,12 +59,11 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax?>,
-        @DeclModifierListBuilder
-        itemsBuilder: @escaping () throws -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping () throws -> DeclModifierListSyntax
     ) throws -> Self {
-        self.with(
+        try self.with(
             keyPath,
-            try DeclModifierListSyntax(itemsBuilder: itemsBuilder)
+            DeclModifierListSyntax(itemsBuilder: itemsBuilder)
         )
     }
 
@@ -80,8 +78,8 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax?>,
-        @DeclModifierListBuilder
-        itemsBuilder: @escaping (DeclModifierListSyntax?) throws -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping (DeclModifierListSyntax?) throws
+            -> DeclModifierListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try itemsBuilder(self[keyPath: keyPath])

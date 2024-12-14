@@ -1,8 +1,8 @@
 //
 //  SyntaxProtocol+WithCodeBlockSyntax.swift
-//  SwiftSyntaxSugar
 //
-//  Created by Gray Campbell on 7/17/24.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 public import SwiftSyntax
@@ -21,12 +21,11 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax>,
-        @CodeBlockItemListBuilder
-        statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
     ) throws -> Self {
-        self.with(
+        try self.with(
             keyPath,
-            try CodeBlockSyntax(statementsBuilder: statementsBuilder)
+            CodeBlockSyntax(statementsBuilder: statementsBuilder)
         )
     }
 
@@ -41,8 +40,8 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax>,
-        @CodeBlockItemListBuilder
-        statementsBuilder: @escaping (CodeBlockSyntax) throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder statementsBuilder: @escaping (CodeBlockSyntax) throws
+            -> CodeBlockItemListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try statementsBuilder(self[keyPath: keyPath])
@@ -60,12 +59,11 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax?>,
-        @CodeBlockItemListBuilder
-        statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder statementsBuilder: @escaping () throws -> CodeBlockItemListSyntax
     ) throws -> Self {
-        self.with(
+        try self.with(
             keyPath,
-            try CodeBlockSyntax(statementsBuilder: statementsBuilder)
+            CodeBlockSyntax(statementsBuilder: statementsBuilder)
         )
     }
 
@@ -80,8 +78,8 @@ extension SyntaxProtocol {
     ///   a `CodeBlockSyntax` built using `statementsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, CodeBlockSyntax?>,
-        @CodeBlockItemListBuilder
-        statementsBuilder: @escaping (CodeBlockSyntax?) throws -> CodeBlockItemListSyntax
+        @CodeBlockItemListBuilder statementsBuilder: @escaping (CodeBlockSyntax?) throws
+            -> CodeBlockItemListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try statementsBuilder(self[keyPath: keyPath])

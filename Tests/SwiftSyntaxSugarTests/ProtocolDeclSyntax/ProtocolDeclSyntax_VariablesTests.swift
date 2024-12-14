@@ -1,8 +1,8 @@
 //
 //  ProtocolDeclSyntax_VariablesTests.swift
-//  SwiftSyntaxSugarTests
 //
-//  Created by Gray Campbell on 11/8/23.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 import SwiftSyntax
