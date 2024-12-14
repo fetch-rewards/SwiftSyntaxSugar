@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class FunctionDeclSyntax_AccessLevelTests: XCTestCase {
+struct FunctionDeclSyntax_AccessLevelTests {
 
     // MARK: Typealiases
 
@@ -17,21 +17,23 @@ final class FunctionDeclSyntax_AccessLevelTests: XCTestCase {
 
     // MARK: Access Level Tests
 
-    func testAccessLevelWithExplicitAccessLevels() {
-        for accessLevel in AccessLevelSyntax.allCases {
-            let sut = SUT(
-                modifiers: DeclModifierListSyntax { accessLevel.modifier },
-                name: "sut",
-                signature: FunctionSignatureSyntax(
-                    parameterClause: FunctionParameterClauseSyntax {}
-                )
+    @Test(arguments: AccessLevelSyntax.allCases)
+    func accessLevelWithExplicitAccessLevelModifier(
+        from accessLevel: AccessLevelSyntax
+    ) {
+        let sut = SUT(
+            modifiers: DeclModifierListSyntax { accessLevel.modifier },
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
             )
+        )
 
-            XCTAssertEqual(sut.accessLevel, accessLevel)
-        }
+        #expect(sut.accessLevel == accessLevel)
     }
 
-    func testAccessLevelWithImplicitInternalAccessLevel() {
+    @Test
+    func accessLevelWithImplicitInternalAccessLevelModifier() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -39,53 +41,52 @@ final class FunctionDeclSyntax_AccessLevelTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(sut.accessLevel, .internal)
+        #expect(sut.accessLevel == .internal)
     }
 
     // MARK: With Access Level Tests
 
-    func testWithAccessLevelWithExplicitAccessLevels() throws {
-        for oldAccessLevel in AccessLevelSyntax.allCases {
-            for newAccessLevel in AccessLevelSyntax.allCases {
-                let sut = try SUT(
-                    modifiers: DeclModifierListSyntax {
-                        oldAccessLevel.modifier
-                        DeclModifierSyntax(name: .keyword(.static))
-                    },
-                    name: "sut",
-                    signature: FunctionSignatureSyntax(
-                        parameterClause: FunctionParameterClauseSyntax {}
-                    )
-                )
-                .withAccessLevel(newAccessLevel)
+    @Test(arguments: AccessLevelSyntax.allCases, AccessLevelSyntax.allCases)
+    func withAccessLevelWithExplicitAccessLevelModifier(
+        oldAccessLevel: AccessLevelSyntax,
+        newAccessLevel: AccessLevelSyntax
+    ) throws {
+        let sut = try SUT(
+            modifiers: DeclModifierListSyntax {
+                oldAccessLevel.modifier
+                DeclModifierSyntax(name: .keyword(.static))
+            },
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
+            )
+        )
+        .withAccessLevel(newAccessLevel)
 
-                XCTAssertEqual(sut.accessLevel, newAccessLevel)
-                XCTAssertEqual(
-                    sut.modifiers.count,
-                    newAccessLevel == .internal ? 1 : 2
-                )
-            }
-        }
+        let expectedModifierCount = newAccessLevel == .internal ? 1 : 2
+
+        #expect(sut.accessLevel == newAccessLevel)
+        #expect(sut.modifiers.count == expectedModifierCount)
     }
 
-    func testWithAccessLevelWithImplicitInternalAccessLevel() throws {
-        for newAccessLevel in AccessLevelSyntax.allCases {
-            let sut = try SUT(
-                modifiers: DeclModifierListSyntax {
-                    DeclModifierSyntax(name: .keyword(.static))
-                },
-                name: "sut",
-                signature: FunctionSignatureSyntax(
-                    parameterClause: FunctionParameterClauseSyntax {}
-                )
+    @Test(arguments: AccessLevelSyntax.allCases)
+    func withAccessLevelWithImplicitInternalAccessLevelModifier(
+        newAccessLevel: AccessLevelSyntax
+    ) throws {
+        let sut = try SUT(
+            modifiers: DeclModifierListSyntax {
+                DeclModifierSyntax(name: .keyword(.static))
+            },
+            name: "sut",
+            signature: FunctionSignatureSyntax(
+                parameterClause: FunctionParameterClauseSyntax {}
             )
-            .withAccessLevel(newAccessLevel)
+        )
+        .withAccessLevel(newAccessLevel)
 
-            XCTAssertEqual(sut.accessLevel, newAccessLevel)
-            XCTAssertEqual(
-                sut.modifiers.count,
-                newAccessLevel == .internal ? 1 : 2
-            )
-        }
+        let expectedModifierCount = newAccessLevel == .internal ? 1 : 2
+
+        #expect(sut.accessLevel == newAccessLevel)
+        #expect(sut.modifiers.count == expectedModifierCount)
     }
 }
