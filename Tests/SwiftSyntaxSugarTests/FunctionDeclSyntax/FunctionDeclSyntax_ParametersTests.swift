@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class FunctionDeclSyntax_ParametersTests: XCTestCase {
+struct FunctionDeclSyntax_ParametersTests {
 
     // MARK: Typealiases
 
@@ -17,7 +17,8 @@ final class FunctionDeclSyntax_ParametersTests: XCTestCase {
 
     // MARK: Parameter Variable Names Tests
 
-    func testParameterVariableNamesWithEmptyParameters() throws {
+    @Test
+    func parameterVariableNamesWithEmptyParameters() throws {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -25,10 +26,11 @@ final class FunctionDeclSyntax_ParametersTests: XCTestCase {
             )
         )
 
-        XCTAssertTrue(sut.parameterVariableNames.isEmpty)
+        #expect(sut.parameterVariableNames.isEmpty)
     }
 
-    func testParameterVariableNamesWithNonEmptyParameters() throws {
+    @Test
+    func parameterVariableNamesWithNonEmptyParameters() throws {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -46,15 +48,15 @@ final class FunctionDeclSyntax_ParametersTests: XCTestCase {
             )
         )
 
-        let parameterVariableNames = try XCTUnwrap(sut.parameterVariableNames)
-        let firstParameterVariableName = try XCTUnwrap(
+        let parameterVariableNames = try #require(sut.parameterVariableNames)
+        let firstParameterVariableName = try #require(
             parameterVariableNames.first
         )
-        let lastParameterVariableName = try XCTUnwrap(
+        let lastParameterVariableName = try #require(
             parameterVariableNames.last
         )
 
-        XCTAssertEqual(firstParameterVariableName.text, "increment")
-        XCTAssertEqual(lastParameterVariableName.text, "limit")
+        #expect(firstParameterVariableName.tokenKind == .identifier("increment"))
+        #expect(lastParameterVariableName.tokenKind == .identifier("limit"))
     }
 }

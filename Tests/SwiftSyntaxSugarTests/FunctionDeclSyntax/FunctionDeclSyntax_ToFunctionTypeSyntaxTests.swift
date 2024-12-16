@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
+struct FunctionDeclSyntax_ToFunctionTypeSyntaxTests {
 
     // MARK: Typealiases
 
@@ -17,7 +17,8 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
 
     // MARK: To FunctionTypeSyntax Tests
 
-    func testToFunctionTypeSyntaxWithParameters() {
+    @Test
+    func toFunctionTypeSyntaxWithParameters() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -37,13 +38,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "(Int,(String,Bool)->Void)->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "(Int,(String,Bool)->Void)->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithAttributedParameters() {
+    @Test
+    func toFunctionTypeSyntaxWithAttributedParameters() {
         // TODO: Remove AttributedTypeSyntax specifiers argument when deprecated init is removed.
         let sut = SUT(
             name: "sut",
@@ -75,13 +77,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "(Int,(String,Bool)->Void)->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "(Int,(String,Bool)->Void)->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithoutParameters() {
+    @Test
+    func toFunctionTypeSyntaxWithoutParameters() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -89,13 +92,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithAsyncSpecifier() {
+    @Test
+    func toFunctionTypeSyntaxWithAsyncSpecifier() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -106,13 +110,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()async->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()async->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithThrowsSpecifier() {
+    @Test
+    func toFunctionTypeSyntaxWithThrowsSpecifier() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -125,13 +130,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()throws->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()throws->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithAsyncAndThrowsSpecifiers() {
+    @Test
+    func toFunctionTypeSyntaxWithAsyncAndThrowsSpecifiers() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -145,13 +151,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()asyncthrows->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()asyncthrows->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithReturnValue() {
+    @Test
+    func toFunctionTypeSyntaxWithReturnValue() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -160,13 +167,14 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()->Bool"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()->Bool"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 
-    func testToFunctionTypeSyntaxWithoutReturnValue() {
+    @Test
+    func toFunctionTypeSyntaxWithoutReturnValue() {
         let sut = SUT(
             name: "sut",
             signature: FunctionSignatureSyntax(
@@ -174,9 +182,9 @@ final class FunctionDeclSyntax_ToFunctionTypeSyntaxTests: XCTestCase {
             )
         )
 
-        XCTAssertEqual(
-            sut.toFunctionTypeSyntax().description,
-            "()->Void"
-        )
+        let functionTypeSyntax = sut.toFunctionTypeSyntax()
+        let expectedDescription = "()->Void"
+
+        #expect(functionTypeSyntax.description == expectedDescription)
     }
 }
