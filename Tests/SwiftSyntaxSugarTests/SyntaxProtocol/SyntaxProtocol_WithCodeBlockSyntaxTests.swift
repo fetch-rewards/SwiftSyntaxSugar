@@ -6,19 +6,16 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class SyntaxProtocol_WithCodeBlockSyntaxTests: XCTestCase {
+struct SyntaxProtocol_WithCodeBlockSyntaxTests {
 
-    // MARK: Typealiases
+    // MARK: With Optional CodeBlockSyntax Tests
 
-    typealias SUT = FunctionDeclSyntax
-
-    // MARK: With CodeBlockSyntax Tests
-
-    func testWithCodeBlockSyntax() throws {
-        let sut = try SUT(
+    @Test
+    func withOptionalCodeBlockSyntax() throws {
+        let sut = try FunctionDeclSyntax(
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {}
@@ -26,11 +23,12 @@ final class SyntaxProtocol_WithCodeBlockSyntaxTests: XCTestCase {
         )
         .with(\.body) {}
 
-        XCTAssertNotNil(sut.body)
+        #expect(sut.body != nil)
     }
 
-    func testWithCodeBlockSyntaxWithClosureParameter() throws {
-        let sut = try SUT(
+    @Test
+    func withOptionalCodeBlockSyntaxWithClosureParameter() throws {
+        let sut = try FunctionDeclSyntax(
             name: "sut",
             signature: FunctionSignatureSyntax(
                 parameterClause: FunctionParameterClauseSyntax {}
@@ -38,6 +36,6 @@ final class SyntaxProtocol_WithCodeBlockSyntaxTests: XCTestCase {
         )
         .with(\.body) { _ in }
 
-        XCTAssertNotNil(sut.body)
+        #expect(sut.body != nil)
     }
 }
