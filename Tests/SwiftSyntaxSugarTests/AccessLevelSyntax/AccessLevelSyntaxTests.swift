@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class AccessLevelSyntaxTests: XCTestCase {
+struct AccessLevelSyntaxTests {
 
     // MARK: Typealiases
 
@@ -17,105 +17,101 @@ final class AccessLevelSyntaxTests: XCTestCase {
 
     // MARK: Property Tests
 
-    func testRawValues() {
-        for sut in SUT.allCases {
-            let expectedRawValue = switch sut {
-            case .fileprivate: "fileprivate"
-            case .internal: "internal"
-            case .open: "open"
-            case .package: "package"
-            case .private: "private"
-            case .public: "public"
-            }
-
-            XCTAssertEqual(sut.rawValue, expectedRawValue)
+    @Test(arguments: SUT.allCases)
+    func rawValue(sut: SUT) {
+        let expectedRawValue = switch sut {
+        case .fileprivate: "fileprivate"
+        case .internal: "internal"
+        case .open: "open"
+        case .package: "package"
+        case .private: "private"
+        case .public: "public"
         }
+
+        #expect(sut.rawValue == expectedRawValue)
     }
 
-    func testKeywords() {
-        for sut in SUT.allCases {
-            let expectedKeyword: Keyword = switch sut {
-            case .fileprivate: .fileprivate
-            case .internal: .internal
-            case .open: .open
-            case .package: .package
-            case .private: .private
-            case .public: .public
-            }
-
-            XCTAssertEqual(sut.keyword, expectedKeyword)
+    @Test(arguments: SUT.allCases)
+    func keyword(sut: SUT) {
+        let expectedKeyword: Keyword = switch sut {
+        case .fileprivate: .fileprivate
+        case .internal: .internal
+        case .open: .open
+        case .package: .package
+        case .private: .private
+        case .public: .public
         }
+
+        #expect(sut.keyword == expectedKeyword)
     }
 
-    func testTokens() {
-        for sut in SUT.allCases {
-            let expectedTokenText = switch sut {
-            case .fileprivate: "fileprivate"
-            case .internal: "internal"
-            case .open: "open"
-            case .package: "package"
-            case .private: "private"
-            case .public: "public"
-            }
-
-            XCTAssertEqual(sut.token.text, expectedTokenText)
+    @Test(arguments: SUT.allCases)
+    func token(sut: SUT) {
+        let expectedTokenKind: TokenKind = switch sut {
+        case .fileprivate: .keyword(.fileprivate)
+        case .internal: .keyword(.internal)
+        case .open: .keyword(.open)
+        case .package: .keyword(.package)
+        case .private: .keyword(.private)
+        case .public: .keyword(.public)
         }
+
+        #expect(sut.token.tokenKind == expectedTokenKind)
     }
 
-    func testModifiers() {
-        for sut in SUT.allCases {
-            let expectedModifierNameText = switch sut {
-            case .fileprivate: "fileprivate"
-            case .internal: "internal"
-            case .open: "open"
-            case .package: "package"
-            case .private: "private"
-            case .public: "public"
-            }
-
-            XCTAssertEqual(sut.modifier.name.text, expectedModifierNameText)
+    @Test(arguments: SUT.allCases)
+    func modifier(sut: SUT) {
+        let expectedModifierTokenKind: TokenKind = switch sut {
+        case .fileprivate: .keyword(.fileprivate)
+        case .internal: .keyword(.internal)
+        case .open: .keyword(.open)
+        case .package: .keyword(.package)
+        case .private: .keyword(.private)
+        case .public: .keyword(.public)
         }
+
+        #expect(sut.modifier.name.tokenKind == expectedModifierTokenKind)
     }
 
     // MARK: Raw Value Initializer Tests
 
-    func testInitWithRawValueWithValidRawValues() {
-        for sut in SUT.allCases {
-            XCTAssertEqual(SUT(rawValue: sut.rawValue), sut)
-        }
+    @Test(arguments: SUT.allCases)
+    func initWithRawValueWithValidRawValue(from sut: SUT) {
+        #expect(SUT(rawValue: sut.rawValue) == sut)
     }
 
-    func testInitWithRawValueWithInvalidRawValues() {
+    @Test
+    func initWithRawValueWithInvalidRawValue() {
         let sut = SUT(rawValue: "sut")
 
-        XCTAssertNil(sut)
+        #expect(sut == nil)
     }
 
     // MARK: Token Initializer Tests
 
-    func testInitWithTokenWithValidTokens() {
-        for sut in SUT.allCases {
-            XCTAssertEqual(SUT(token: sut.token), sut)
-        }
+    @Test(arguments: SUT.allCases)
+    func initWithTokenWithValidToken(from sut: SUT) {
+        #expect(SUT(token: sut.token) == sut)
     }
 
-    func testInitWithTokenWithInvalidTokens() {
+    @Test
+    func initWithTokenWithInvalidToken() {
         let sut = SUT(token: "sut")
 
-        XCTAssertNil(sut)
+        #expect(sut == nil)
     }
 
     // MARK: Modifier Initializer Tests
 
-    func testInitWithModifierWithValidModifiers() {
-        for sut in SUT.allCases {
-            XCTAssertEqual(SUT(modifier: sut.modifier), sut)
-        }
+    @Test(arguments: SUT.allCases)
+    func initWithModifierWithValidModifier(from sut: SUT) {
+        #expect(SUT(modifier: sut.modifier) == sut)
     }
 
-    func testInitWithModifierWithInvalidModifiers() {
+    @Test
+    func initWithModifierWithInvalidModifier() {
         let sut = SUT(modifier: DeclModifierSyntax(name: .keyword(.static)))
 
-        XCTAssertNil(sut)
+        #expect(sut == nil)
     }
 }
