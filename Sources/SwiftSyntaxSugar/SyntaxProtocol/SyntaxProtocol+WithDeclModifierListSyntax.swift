@@ -23,9 +23,9 @@ extension SyntaxProtocol {
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax>,
         @DeclModifierListBuilder itemsBuilder: @escaping () throws -> DeclModifierListSyntax
     ) throws -> Self {
-        try self.with(
+        self.with(
             keyPath,
-            DeclModifierListSyntax(itemsBuilder: itemsBuilder)
+            try DeclModifierListSyntax(itemsBuilder: itemsBuilder)
         )
     }
 
@@ -40,8 +40,9 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax>,
-        @DeclModifierListBuilder itemsBuilder: @escaping (DeclModifierListSyntax) throws
-            -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping (
+            DeclModifierListSyntax
+        ) throws -> DeclModifierListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try itemsBuilder(self[keyPath: keyPath])
@@ -61,9 +62,9 @@ extension SyntaxProtocol {
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax?>,
         @DeclModifierListBuilder itemsBuilder: @escaping () throws -> DeclModifierListSyntax
     ) throws -> Self {
-        try self.with(
+        self.with(
             keyPath,
-            DeclModifierListSyntax(itemsBuilder: itemsBuilder)
+            try DeclModifierListSyntax(itemsBuilder: itemsBuilder)
         )
     }
 
@@ -78,8 +79,9 @@ extension SyntaxProtocol {
     ///   a `DeclModifierListSyntax` built using `itemsBuilder`.
     public func with(
         _ keyPath: WritableKeyPath<Self, DeclModifierListSyntax?>,
-        @DeclModifierListBuilder itemsBuilder: @escaping (DeclModifierListSyntax?) throws
-            -> DeclModifierListSyntax
+        @DeclModifierListBuilder itemsBuilder: @escaping (
+            DeclModifierListSyntax?
+        ) throws -> DeclModifierListSyntax
     ) throws -> Self {
         try self.with(keyPath) {
             try itemsBuilder(self[keyPath: keyPath])
