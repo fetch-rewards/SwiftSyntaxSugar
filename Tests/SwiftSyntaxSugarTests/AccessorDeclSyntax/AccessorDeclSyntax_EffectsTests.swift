@@ -1,8 +1,8 @@
 //
 //  AccessorDeclSyntax_EffectsTests.swift
-//  SwiftSyntaxSugarTests
 //
-//  Created by Gray Campbell on 11/3/23.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 import SwiftSyntax

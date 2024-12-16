@@ -1,8 +1,8 @@
 //
 //  ProtocolDeclSyntax+Initializers.swift
-//  SwiftSyntaxSugar
 //
-//  Created by Gray Campbell on 11/30/24.
+//  Created by Gray Campbell.
+//  Copyright © 2024 Fetch.
 //
 
 public import SwiftSyntax

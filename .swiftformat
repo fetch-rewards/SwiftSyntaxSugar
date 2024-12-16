@@ -9,6 +9,9 @@
 ## Acronyms to auto-capitalize. Defaults to ID,URL,UUID.
 --acronyms ID,URL,UUID,API
 
+## Date format to use in file headers: system (default), iso, dmy, mdy, or custom.
+--dateformat mdy
+
 ## Change type with only static members to enum: always (default) or structs-only.
 --enumnamespaces structs-only
 
@@ -19,7 +22,7 @@
 --funcattributes prev-line
 
 ## Header comments: strip, ignore, or the text you wish use.
---header ignore
+--header \n {file}\n\n Created by {author.name}.\n Copyright © {year} Fetch.\n
 
 ## #if indenting: indent (default), no-indent, or outdent.
 --ifdef no-indent
@@ -64,7 +67,7 @@
 --typeblanklines preserve
 
 ## Property @attributes: preserve, prev-line, or same-line.
---varattributes same-line
+--varattributes preserve
 
 ## Wrap all arguments: before-first, after-first, preserve.
 --wraparguments before-first
@@ -192,20 +195,10 @@
 ## Ensure file name in header comment matches the actual file name.
 --rules headerFileName
 
-## Move inline await keyword(s) to start of expression.
-### Options: 
-###   --asynccapturing
---rules hoistAwait
-
 ## Reposition let or var bindings within pattern.
 ### Options: 
 ###   --patternlet (default: hoist)
 --rules hoistPatternLet
-
-## Move inline try keyword(s) to start of expression.
-### Options: 
-###   --throwcapturing
---rules hoistTry
 
 ## Indent code in accordance with the scope level.
 ### Options: 

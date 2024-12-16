@@ -43,15 +43,19 @@ let package = Package(
 // MARK: - Swift Settings
 
 extension SwiftSetting {
-    static let internalImportsByDefault: SwiftSetting = .enableUpcomingFeature("InternalImportsByDefault")
-    static let existentialAny: SwiftSetting = .enableUpcomingFeature("ExistentialAny")
+    static let internalImportsByDefault: SwiftSetting = .enableUpcomingFeature(
+        "InternalImportsByDefault"
+    )
+    static let existentialAny: SwiftSetting = .enableUpcomingFeature(
+        "ExistentialAny"
+    )
 }
 
-extension Array where Element == SwiftSetting {
+extension [SwiftSetting] {
 
     /// Default Swift settings to enable for targets.
     static let `default`: [SwiftSetting] = [
         .existentialAny,
-        .internalImportsByDefault
+        .internalImportsByDefault,
     ]
 }
