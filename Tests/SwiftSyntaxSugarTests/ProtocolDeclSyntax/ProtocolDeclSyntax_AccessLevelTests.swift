@@ -6,10 +6,10 @@
 //
 
 import SwiftSyntax
-import XCTest
+import Testing
 @testable import SwiftSyntaxSugar
 
-final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
+struct ProtocolDeclSyntax_AccessLevelTests {
 
     // MARK: Typealiases
 
@@ -17,21 +17,23 @@ final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
 
     // MARK: Access Level Tests
 
-    func testAccessLevelWithExplicitAccessLevels() {
-        for accessLevel in AccessLevelSyntax.allCases {
-            let sut = SUT(
-                modifiers: DeclModifierListSyntax {
-                    accessLevel.modifier
-                    DeclModifierSyntax(name: .keyword(.static))
-                },
-                name: "SUT"
-            ) {}
+    @Test(arguments: AccessLevelSyntax.allCases)
+    func accessLevelWithExplicitAccessLevelModifier(
+        from accessLevel: AccessLevelSyntax
+    ) {
+        let sut = SUT(
+            modifiers: DeclModifierListSyntax {
+                accessLevel.modifier
+                DeclModifierSyntax(name: .keyword(.static))
+            },
+            name: "SUT"
+        ) {}
 
-            XCTAssertEqual(sut.accessLevel, accessLevel)
-        }
+        #expect(sut.accessLevel == accessLevel)
     }
 
-    func testAccessLevelWithImplicitInternalAccessLevel() {
+    @Test
+    func accessLevelWithImplicitInternalAccessLevelModifier() {
         let sut = SUT(
             modifiers: DeclModifierListSyntax {
                 DeclModifierSyntax(name: .keyword(.static))
@@ -39,33 +41,35 @@ final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
             name: "SUT"
         ) {}
 
-        XCTAssertEqual(sut.accessLevel, .internal)
+        #expect(sut.accessLevel == .internal)
     }
 
     // MARK: Minimum Conforming Access Level Tests
 
-    func testMinimumConformingAccessLevelWithExplicitAccessLevels() {
-        for accessLevel in AccessLevelSyntax.allCases {
-            let sut = SUT(
-                modifiers: DeclModifierListSyntax {
-                    accessLevel.modifier
-                    DeclModifierSyntax(name: .keyword(.static))
-                },
-                name: "SUT"
-            ) {}
-            let expectedMinimumConformingAccessLevel: AccessLevelSyntax = switch accessLevel {
-            case .fileprivate, .private: .fileprivate
-            case .internal, .open, .package, .public: accessLevel
-            }
+    @Test(arguments: AccessLevelSyntax.allCases)
+    func minimumConformingAccessLevelWithExplicitAccessLevelModifier(
+        from accessLevel: AccessLevelSyntax
+    ) {
+        let sut = SUT(
+            modifiers: DeclModifierListSyntax {
+                accessLevel.modifier
+                DeclModifierSyntax(name: .keyword(.static))
+            },
+            name: "SUT"
+        ) {}
 
-            XCTAssertEqual(
-                sut.minimumConformingAccessLevel,
-                expectedMinimumConformingAccessLevel
-            )
+        let expectedMinimumConformingAccessLevel: AccessLevelSyntax = switch accessLevel {
+        case .fileprivate, .private: .fileprivate
+        case .internal, .open, .package, .public: accessLevel
         }
+
+        #expect(
+            sut.minimumConformingAccessLevel == expectedMinimumConformingAccessLevel
+        )
     }
 
-    func testMinimumConformingAccessLevelWithImplicitInternalAccessLevel() {
+    @Test
+    func minimumConformingAccessLevelWithImplicitInternalAccessLevelModifier() {
         let sut = SUT(
             modifiers: DeclModifierListSyntax {
                 DeclModifierSyntax(name: .keyword(.static))
@@ -73,6 +77,6 @@ final class ProtocolDeclSyntax_AccessLevelTests: XCTestCase {
             name: "SUT"
         ) {}
 
-        XCTAssertEqual(sut.minimumConformingAccessLevel, .internal)
+        #expect(sut.minimumConformingAccessLevel == .internal)
     }
 }

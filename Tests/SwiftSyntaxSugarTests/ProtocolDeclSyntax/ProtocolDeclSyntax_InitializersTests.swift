@@ -19,7 +19,7 @@ struct ProtocolDeclSyntax_InitializersTests {
 
     @Test
     func initializerDeclarations() {
-        let sut = SUT(name: .identifier("Initializers")) {
+        let sut = SUT(name: "SUT") {
             self.initializerDeclaration()
             self.propertyDeclaration(name: "property1")
             self.initializerDeclaration()

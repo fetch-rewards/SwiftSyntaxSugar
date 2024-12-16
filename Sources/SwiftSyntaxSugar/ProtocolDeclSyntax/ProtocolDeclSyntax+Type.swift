@@ -11,6 +11,8 @@ extension ProtocolDeclSyntax {
 
     /// The protocol as a type.
     public var type: TypeSyntax {
-        TypeSyntax(stringLiteral: self.name.text)
+        TypeSyntax(
+            IdentifierTypeSyntax(name: self.name)
+        )
     }
 }
