@@ -1,8 +1,8 @@
 //
 //  SyntaxProtocol_WithAttributeListSyntaxTests.swift
-//  SwiftSyntaxSugar
 //
-//  Created by Gray Campbell on 1/14/25.
+//  Created by Gray Campbell.
+//  Copyright © 2025 Fetch.
 //
 
 import SwiftSyntax
