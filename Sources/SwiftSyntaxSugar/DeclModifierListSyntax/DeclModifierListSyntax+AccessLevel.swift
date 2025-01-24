@@ -2,7 +2,7 @@
 //  DeclModifierListSyntax+AccessLevel.swift
 //
 //  Created by Gray Campbell.
-//  Copyright © 2024 Fetch.
+//  Copyright © 2025 Fetch.
 //
 
 public import SwiftSyntax
