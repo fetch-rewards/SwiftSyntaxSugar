@@ -19,7 +19,9 @@ extension ProtocolDeclSyntax {
         let inheritedTypes = inheritanceClause.inheritedTypes
 
         return inheritedTypes.identifierTypes.contains { identifierType in
-            identifierType.name.trimmed.text == String(describing: (any Actor).self)
+            identifierType.name.tokenKind == .identifier(
+                String(describing: (any Actor).self)
+            )
         }
     }
 }
