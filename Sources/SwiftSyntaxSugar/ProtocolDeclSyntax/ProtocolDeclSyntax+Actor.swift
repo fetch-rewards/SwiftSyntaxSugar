@@ -16,10 +16,12 @@ extension ProtocolDeclSyntax {
             return false
         }
 
-        let inheritedTypes = inheritanceClause.inheritedTypes
+        let identifierTypes = inheritanceClause.inheritedTypes(
+            ofType: IdentifierTypeSyntax.self
+        )
 
-        return inheritedTypes.identifierTypes.contains { identifierType in
-            identifierType.name.trimmed.text == String(describing: (any Actor).self)
+        return identifierTypes.contains { type in
+            type.name.tokenKind == .identifier(String(describing: (any Actor).self))
         }
     }
 }
