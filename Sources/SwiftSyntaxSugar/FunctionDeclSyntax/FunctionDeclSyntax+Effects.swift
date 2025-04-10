@@ -18,19 +18,4 @@ extension FunctionDeclSyntax {
     public var isThrowing: Bool {
         self.signature.effectSpecifiers?.throwsClause != nil
     }
-
-    /// The keywords needed to invoke the function (i.e. `try` and/or `await`).
-    public var invocationKeywordTokens: [TokenSyntax] {
-        var keywordTokens: [TokenSyntax] = []
-
-        if self.isThrowing {
-            keywordTokens.append(.keyword(.try))
-        }
-
-        if self.isAsync {
-            keywordTokens.append(.keyword(.await))
-        }
-
-        return keywordTokens
-    }
 }

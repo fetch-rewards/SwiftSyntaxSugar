@@ -18,19 +18,4 @@ extension AccessorDeclSyntax {
     public var isThrowing: Bool {
         self.effectSpecifiers?.throwsClause != nil
     }
-
-    /// The keywords needed to invoke the accessor (i.e. `try` and/or `await`).
-    public var invocationKeywordTokens: [TokenSyntax] {
-        var keywordTokens: [TokenSyntax] = []
-
-        if self.isThrowing {
-            keywordTokens.append(.keyword(.try))
-        }
-
-        if self.isAsync {
-            keywordTokens.append(.keyword(.await))
-        }
-
-        return keywordTokens
-    }
 }
