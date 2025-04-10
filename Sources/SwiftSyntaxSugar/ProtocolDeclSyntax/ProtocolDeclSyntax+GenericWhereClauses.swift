@@ -18,8 +18,11 @@ extension ProtocolDeclSyntax {
             genericWhereClauses.append(genericWhereClause)
         }
 
-        for associatedTypeDeclaration in self.associatedTypeDeclarations {
+        for member in self.memberBlock.members {
             guard
+                let associatedTypeDeclaration = member.decl.as(
+                    AssociatedTypeDeclSyntax.self
+                ),
                 let genericWhereClause = associatedTypeDeclaration.genericWhereClause
             else {
                 continue

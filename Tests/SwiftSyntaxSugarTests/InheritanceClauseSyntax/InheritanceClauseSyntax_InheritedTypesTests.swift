@@ -1,5 +1,5 @@
 //
-//  InheritedTypeListSyntax_IdentifierTypesTests.swift
+//  InheritanceClauseSyntax_InheritedTypesTests.swift
 //
 //  Created by Gray Campbell.
 //  Copyright © 2025 Fetch.
@@ -9,11 +9,11 @@ import SwiftSyntax
 import Testing
 @testable import SwiftSyntaxSugar
 
-struct InheritedTypeListSyntax_IdentifierTypesTests {
+struct InheritanceClauseSyntax_InheritedTypesTests {
 
     // MARK: Typealiases
 
-    typealias SUT = InheritedTypeListSyntax
+    typealias SUT = InheritanceClauseSyntax
 
     // MARK: Identifier Types Tests
 
@@ -24,11 +24,16 @@ struct InheritedTypeListSyntax_IdentifierTypesTests {
                 type: IdentifierTypeSyntax(name: "Hashable")
             )
             InheritedTypeSyntax(
+                type: ArrayTypeSyntax(
+                    element: IdentifierTypeSyntax(name: "String")
+                )
+            )
+            InheritedTypeSyntax(
                 type: IdentifierTypeSyntax(name: "Identifiable")
             )
         }
 
-        let identifierTypes = sut.identifierTypes
+        let identifierTypes = sut.inheritedTypes(ofType: IdentifierTypeSyntax.self)
         let identifierTypeTokenKinds = identifierTypes.map(\.name.tokenKind)
         let expectedIdentifierTypeTokenKinds: [TokenKind] = [
             .identifier("Hashable"),
