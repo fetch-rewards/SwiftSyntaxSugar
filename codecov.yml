@@ -1,3 +1,2 @@
-coverage:
-  ignore:
-    - Tests/*
+ignore:
+  - "Tests"
