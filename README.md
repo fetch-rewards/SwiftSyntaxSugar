@@ -2,6 +2,38 @@
 
 SwiftSyntaxSugar is a library that provides syntactic sugar and helpful extensions for [SwiftSyntax](https://github.com/swiftlang/swift-syntax). The purpose of this library is to improve the readability and maintainability of code written using SwiftSyntax.
 
+- [Example](#example)
+- [Installation](#installation)
+- [License](#license)
+
+## Example
+
+<table style="width: 100%; table-layout: fixed;">
+<tr>
+<td> With <code>SwiftSyntaxSugar</code> </td>
+<td> Without <code>SwiftSyntaxSugar</code> </td> 
+</tr>
+<tr>
+<td style="width: 50%;">
+  
+```swift
+protocolDeclaration.isActorConstrained    
+```
+
+</td>
+<td style="width: 50%;">
+  
+```swift
+let isProtocolActorConstrained = protocolDeclaration.inheritanceClause?.inheritedTypes.contains { inheritedType in    
+    let identifierType = inheritedType.type.as(IdentifierTypeSyntax.self)
+    return identifierType.name.tokenKind == .identifier("Actor")
+} ?? false
+```
+
+</td>
+</tr>
+</table>
+
 ## Installation
 
 To add SwiftSyntaxSugar to a Swift package manifest file:
