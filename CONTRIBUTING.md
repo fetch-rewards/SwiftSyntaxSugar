@@ -11,14 +11,9 @@
 > 
 > Thank you for helping us make this project the best it can be!
 
-- [Issues](#issues)
 - [Code Formatting](#code-formatting)
 - [Signed Commits Required](#signed-commits-required)
 - [Commit Messages & PR Titles](#commit-messages--pr-titles)
-
-## Issues
-
-You do not need to have a specific solution or implementation in mind to [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new/choose).
 
 ## Code Formatting
 
