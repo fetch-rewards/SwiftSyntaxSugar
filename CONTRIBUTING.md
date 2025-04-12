@@ -23,7 +23,7 @@ Thank you for helping us make the open-source community safer!
 Descriptive, well-formatted commit messages and PR titles help create a consistent experience for maintainers and
 contributors.
 
-**All commits and PR should follow these best practices:**
+**All commits and PR titles should follow these guidelines:**
 
 1. The subject is written using sentence case, not title case, and acronyms are written in all caps:
    ```
