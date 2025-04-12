@@ -1,7 +1,7 @@
 # Contributing
 
 - [Signed Commits Required](#signed-commits-required)
-- [Commit Messages & PR Titles](#commit-messages-pr-titles)
+- [Commit Messages & PR Titles](#commit-messages-+-pr-titles)
 
 ## Signed Commits Required
 
