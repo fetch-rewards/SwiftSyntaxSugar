@@ -1,9 +1,9 @@
 # Contributing
 
-- [Signed Commits](#signed-commits)
-- [Commit Messages](#commit-messages)
+- [Signed Commits Required](#signed-commits-required)
+- [Commit Messages & PR Titles](#commit-messages-pr-titles)
 
-## Signed Commits
+## Signed Commits Required
 
 All contributions to this project must use **signed commits**. This is an important part of our commitment to security, 
 authenticity, and trust in the software we maintain. Signed commits prove that a commit actually came from you, not just 
@@ -18,4 +18,34 @@ To learn more about commit signature verification and to make sure you're using 
 
 Thank you for helping us make the open-source community safer!
 
-### Commit Messages
+## Commit Messages & PR Titles
+
+Descriptive, well-formatted commit messages and PR titles help create a consistent experience for maintainers and
+contributors.
+
+**All commits and PR should follow these best practices:**
+
+1. The subject is written using sentence case, not title case, and acronyms are written in all caps:
+   ```
+   ✅ Make public API changes
+   ❌ Make public api changes
+   ❌ Make Public API Changes
+   ❌ MAKE PUBLIC API CHANGES
+   ```
+1. The subject is written in the imperative:
+   ```
+   ✅ Add new file
+   ❌ Adds new file
+   ❌ Added new file
+   ❌ Adding new file
+   ```
+1. The subject does not end with a period or include unnecessary punctuation:
+   ```
+   ✅ Refactor networking layer
+   ❌ Refactor networking layer.
+   ```
+1. The subject is ideally 50 characters or less (otherwise, 72 characters or less).
+1. The subject is separated from the body with a blank line (critical unless the body is ommitted entirely).
+1. The subject and body are free of whitepsace errors and typos.
+1. The body uses proper punctuation and capitalization.
+1. The body has a line length of 72 characters or less.
