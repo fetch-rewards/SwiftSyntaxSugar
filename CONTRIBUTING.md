@@ -7,11 +7,10 @@ authenticity, and trust in the software we maintain. Signed commits prove that a
 someone who knows your name and email. Without signed commits, it’s possible for malicious actors to impersonate contributors 
 and inject malicious code into the project. 
 
-**Unsigned commits will be automatically rejected by our CI. If you forget to sign a commit, you can amend and re-push.**
+> [!IMPORTANT]
+> Unsigned commits will be automatically rejected by our CI. If you forget to sign a commit, you can amend and re-push.
 
 To learn more about commit signature verification and to make sure you're using signed commits, please read this 
 [guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 Thank you for helping us make the open-source community safer!
-
-### 
