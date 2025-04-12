@@ -1,6 +1,8 @@
 # Contributing
 
-### 🔏 Signed Commits Required
+- [Signed Commits Required](#signed-commits-required)
+
+## 🔏 Signed Commits Required
 
 All contributions to this project must use **signed commits**. This is an important part of our commitment to security, 
 authenticity, and trust in the software we maintain. Signed commits prove that a commit actually came from you, not just 
