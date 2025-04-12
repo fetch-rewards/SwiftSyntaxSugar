@@ -1,6 +1,7 @@
 # Contributing
 
 - [Signed Commits Required](#signed-commits-required)
+- [Commit Message Guidelines](#commit-message-guidelines)
 
 ## 🔏 Signed Commits Required
 
@@ -16,3 +17,5 @@ To learn more about commit signature verification and to make sure you're using 
 [guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 Thank you for helping us make the open-source community safer!
+
+### ✍️ Commit Message Guidelines
