@@ -1,9 +1,9 @@
 # Contributing
 
-- [Signed Commits Required](#signed-commits-required)
-- [Commit Message Guidelines](#commit-message-guidelines)
+- [Signed Commits](#signed-commits)
+- [Commit Messages](#commit-messages)
 
-## 🔏 Signed Commits Required
+## Signed Commits
 
 All contributions to this project must use **signed commits**. This is an important part of our commitment to security, 
 authenticity, and trust in the software we maintain. Signed commits prove that a commit actually came from you, not just 
@@ -18,4 +18,4 @@ To learn more about commit signature verification and to make sure you're using 
 
 Thank you for helping us make the open-source community safer!
 
-### ✍️ Commit Message Guidelines
+### Commit Messages
