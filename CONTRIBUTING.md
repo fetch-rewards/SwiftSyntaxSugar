@@ -8,8 +8,7 @@ someone who knows your name and email. Without signed commits, it’s possible f
 and inject malicious code into the project. 
 
 > [!IMPORTANT]
-> Unsigned commits will be automatically rejected by our CI. If you forget to sign a commit, you can amend it using signature
-> verification.
+> Unsigned commits will be automatically rejected by our CI. If you forget to sign a commit, you can amend it.
 
 To learn more about commit signature verification and to make sure you're using signed commits, please read this 
 [guide](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification).
