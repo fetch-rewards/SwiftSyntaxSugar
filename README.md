@@ -1,6 +1,7 @@
 # SwiftSyntaxSugar
 
-SwiftSyntaxSugar is a library that provides syntactic sugar and helpful extensions for [SwiftSyntax](https://github.com/swiftlang/swift-syntax). The purpose of this library is to improve the readability and maintainability of code written using SwiftSyntax.
+`SwiftSyntaxSugar` is a library that provides syntactic sugar and helpful extensions for [`SwiftSyntax`](https://github.com/swiftlang/swift-syntax). 
+The purpose of this library is to improve the readability and maintainability of code written using `SwiftSyntax`.
 
 - [Example](#example)
 - [Installation](#installation)
@@ -37,15 +38,15 @@ let isProtocolActorConstrained = protocolDeclaration.inheritanceClause?.inherite
 
 ## Installation
 
-To add SwiftSyntaxSugar to a Swift package manifest file:
-- Add the SwiftSyntaxSugar package to your package's `dependencies`:
+To add `SwiftSyntaxSugar` to a Swift package manifest file:
+- Add the `SwiftSyntaxSugar` package to your package's `dependencies`:
   ```swift
   .package(
       url: "https://github.com/fetch-rewards/SwiftSyntaxSugar.git",
       from: "<#latest SwiftSyntaxSugar tag#>"
   )
   ```
-- Add the SwiftSyntaxSugar product to your target's `dependencies`:
+- Add the `SwiftSyntaxSugar` product to your target's `dependencies`:
   ```swift
   .product(name: "SwiftSyntaxSugar", package: "SwiftSyntaxSugar")
   ```
