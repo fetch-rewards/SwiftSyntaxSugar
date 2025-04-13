@@ -2,9 +2,9 @@
 
 > [!IMPORTANT]
 > PRs are merged at the discretion of the project's maintainers. If you would like to contribute code to this project,
-> please first [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new) with a detailed
-> description of your proposed changes. This allows us to discuss implementation, alternatives, etc. and saves everyone
-> from needless back and forth and wasted time that can arise when PRs are created without prior discussion.
+> please first [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new) with a detailed description
+> of your proposed changes. This allows us to discuss implementation, alternatives, etc. and saves everyone from needless
+> back and forth and wasted time that can arise when PRs are created without prior discussion.
 >
 > After you've created an issue, please read through the guidelines in this document carefully before implementing any
 > changes.
