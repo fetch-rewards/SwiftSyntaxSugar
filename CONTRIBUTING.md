@@ -1,23 +1,21 @@
 # Contributing
 
 > [!IMPORTANT]
-> PRs are merged at the discretion of the project's maintainers. If you would like to contribute to this project,
+> PRs are merged at the discretion of the project's maintainers. If you would like to contribute code to this project,
 > please first [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new/choose) with a detailed
 > description of your proposed changes. This allows us to discuss implementation, alternatives, etc. and saves everyone
 > from needless back and forth and wasted time that can arise when PRs are created without prior discussion.
 >
 > After you've created an issue, please read through the guidelines in this document carefully before implementing any
 > changes.
+>
+> By opening an issue or contributing code to this project, you agree to follow our
+> [Code of Conduct](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/CODE_OF_CONDUCT.md).
 > 
 > Thank you for helping us make this project the best it can be!
 
-- [Code Formatting](#code-formatting)
 - [Signed Commits Required](#signed-commits-required)
 - [Commit Messages & PR Titles](#commit-messages--pr-titles)
-
-## Code Formatting
-
-This project uses [SwiftFormat](https://github.com/nicklockwood/SwiftFormat).
 
 ## Signed Commits Required
 
