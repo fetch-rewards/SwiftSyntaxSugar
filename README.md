@@ -49,6 +49,14 @@ To add SwiftSyntaxSugar to a Swift package manifest file:
   .product(name: "SwiftSyntaxSugar", package: "SwiftSyntaxSugar")
   ```
 
+## Contributing
+
+The simplest way to contribute to this project is to [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new/choose).
+
+If you would like to contribute code to this project, please read our [Contributing Guidelines](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/CONTRIBUTING.md).
+
+By opening an issue or contributing code to this project, you agree to follow our [Code of Conduct](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/CODE_OF_CONDUCT.md).
+
 ## License
 
 This library is released under the MIT license. See [LICENSE](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/LICENSE) for details.
