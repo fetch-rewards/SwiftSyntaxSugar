@@ -51,7 +51,7 @@ To add SwiftSyntaxSugar to a Swift package manifest file:
 
 ## Contributing
 
-The simplest way to contribute to this project is to [open an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new/choose).
+The simplest way to contribute to this project is by [opening an issue](https://github.com/fetch-rewards/SwiftSyntaxSugar/issues/new/choose).
 
 If you would like to contribute code to this project, please read our [Contributing Guidelines](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/CONTRIBUTING.md).
 
