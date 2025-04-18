@@ -34,8 +34,8 @@ brew bundle
 
 This project uses [`SwiftFormat`](https://github.com/nicklockwood/SwiftFormat) to maintain consistent code formatting.
 We do not currently automate the process of formatting code, but our CI workflow does use `SwiftFormat` as a linter to
-validate that all code changes adhere to our formatting rules. Before creating a PR, please run `SwiftFormat` on all
-new or updated files and commit the changes.
+validate that all code changes adhere to our formatting rules. Before creating a PR, please run `SwiftFormat` on all new 
+or updated files and commit the changes.
 
 ## Signed Commits Required
 
