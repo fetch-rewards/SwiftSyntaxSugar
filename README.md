@@ -5,25 +5,26 @@ The purpose of this library is to improve the readability and maintainability of
 
 - [Example](#example)
 - [Installation](#installation)
+- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Example
 
-<table style="width: 100%; table-layout: fixed;">
+<table>
 <tr>
 <td> With <code>SwiftSyntaxSugar</code> </td>
 <td> Without <code>SwiftSyntaxSugar</code> </td> 
 </tr>
 <tr>
-<td style="width: 50%;">
+<td>
   
 ```swift
 protocolDeclaration.isActorConstrained    
 ```
 
 </td>
-<td style="width: 50%;">
+<td>
   
 ```swift
 let isProtocolActorConstrained = protocolDeclaration.inheritanceClause?.inheritedTypes.contains { inheritedType in    
@@ -50,6 +51,14 @@ To add `SwiftSyntaxSugar` to a Swift package manifest file:
   ```swift
   .product(name: "SwiftSyntaxSugar", package: "SwiftSyntaxSugar")
   ```
+
+## Usage
+
+- Import `SwiftSyntaxSugar`:
+  ```swift
+  import SwiftSyntaxSugar
+  ```
+- Use `SwiftSyntax` exactly how you normally would!
 
 ## Contributing
 
