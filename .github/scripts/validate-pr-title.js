@@ -56,7 +56,7 @@ const firstWordAsImperativeVerbCapitalized = capitalized(firstWordAsImperativeVe
 if (firstWordLowercased === firstWordAsImperativeVerbLowercased) {
   logSuccess(`PR title is written in the imperative`)
 } else if (firstWordAsImperativeVerb) {
-  logFailure(`PR title must be written in the imperative. Try using "${firstWordAsImperativeVerbCapitalized}" instead of "${firstWordCapitalized}"`)
+  logFailure(`PR title must be written in the imperative ("${firstWordAsImperativeVerbCapitalized}" instead of "${firstWordCapitalized}")`)
 } else {
   logFailure(`PR title must begin with a verb and be written in the imperative`)
 }
