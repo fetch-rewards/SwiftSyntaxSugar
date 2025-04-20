@@ -13,7 +13,7 @@ jobs:
     name: Validate PR Title
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo
+      - name: Checkout source code
         uses: actions/checkout@v4
 
       - name: Set up Node.js
