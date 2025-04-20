@@ -27,7 +27,7 @@ located at the repository's root.
 
 To install these dependencies, use the command line to navigate to the repository’s root and run the following command:
 ```
-brew bundle
+brew bundle install
 ```
 
 ## Code Formatting
