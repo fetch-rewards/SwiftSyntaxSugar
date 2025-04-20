@@ -2,7 +2,7 @@ name: PR Labels
 
 on:
   pull_request:
-    types: [opened, labeled, unlabeled, reopened]
+    types: [opened, labeled, unlabeled, reopened, synchronize]
 
 permissions:
   contents: read
