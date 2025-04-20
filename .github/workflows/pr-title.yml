@@ -27,5 +27,4 @@ jobs:
       - name: Validate PR title
         run: node .github/scripts/validate-pr-title.js
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_TITLE: ${{ github.event.pull_request.title }}
