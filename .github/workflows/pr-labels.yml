@@ -4,6 +4,10 @@ on:
   pull_request:
     types: [opened, labeled, unlabeled, reopened]
 
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
   check-labels:
     runs-on: ubuntu-latest
@@ -14,7 +18,7 @@ jobs:
 
       - name: Validate PR has required labels
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Checking for required PR labels..."
           PR_NUMBER=${{ github.event.pull_request.number }}
