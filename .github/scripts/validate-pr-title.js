@@ -16,7 +16,7 @@ const firstWord = title.split(' ')[0].toLowerCase()
 const infinitiveVerb = nlp(firstWord).verbs().toInfinitive().out('text').toLowerCase()
 
 if (firstWord !== infinitiveVerb) {
-  error(`Title should be written in the imperative. Try using: "${nlpVerb}..."`)
+  error(`Title should be written in the imperative. Try using: "${infinitiveVerb}..."`)
 }
 
 // Rule 3: Sentence case check
