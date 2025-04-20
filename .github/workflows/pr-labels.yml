@@ -12,12 +12,9 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v3
 
-      - name: Install GitHub CLI
-        uses: cli/cli-action@v2
-
       - name: Validate PR has required labels
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Checking for required PR labels..."
           PR_NUMBER=${{ github.event.pull_request.number }}
