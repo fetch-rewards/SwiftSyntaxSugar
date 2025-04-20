@@ -1,9 +1,15 @@
 const nlp = require('compromise')
-const prTitle = process.env.PR_TITLE || ''
+const title = process.env.PR_TITLE || ''
 
-function logError(message) {
+let isValidTitle = true
+
+function logSuccess(message) {
+  console.log(`✅ ${message}`)
+}
+
+function logFailure(message) {
+  isValidTitle = false
   console.error(`❌ ${message}`)
-  process.exit(1)
 }
 
 function capitalized(string) {
@@ -12,39 +18,49 @@ function capitalized(string) {
 }
 
 // Rule 1: PR title must not be empty
-if (!prTitle) {
-  logError(`PR title must not be empty`)
+if (title) {
+  logSuccess(`PR title is not empty`)
+} else {
+  logFailure(`PR title must not be empty`)
 }
 
 // Rule 2: PR title must be 72 characters or less
-if (prTitle.length > 72) {
-  logError(`PR title must be 72 characters or less (${prTitle.length})`)
+if (title.length <= 72) {
+  logSuccess(`PR title is ${title.length} characters`)
+} else {
+  logFailure(`PR title must be 72 characters or less (currently ${title.length} characters)`)
 }
 
-// Rule 3: PR title must be written in the imperative
-const firstWord = prTitle.split(' ')[0]
+// Rule 3: PR title must begin with a capital letter
+if (/^[A-Z]/.test(title)) {
+  logSuccess(`PR title begins with a capital letter`)
+} else {
+  logFailure('PR title must begin with a capital letter')
+}
+
+// Rule 4: PR title must end with a letter or number
+if (/[A-Za-z0-9]$/.test(title)) {
+  logSuccess(`PR title ends with a letter or number`)
+} else {
+  logFailure('PR title must end with a letter or number')
+}
+
+// Rule 5: PR title must be written in the imperative
+const firstWord = title.split(' ')[0]
 const firstWordLowercased = firstWord.toLowerCase()
 const firstWordCapitalized = capitalized(firstWord)
 const firstWordAsImperativeVerb = nlp(firstWord).verbs().toInfinitive().out('text')
 const firstWordAsImperativeVerbLowercased = firstWordAsImperativeVerb.toLowerCase()
 const firstWordAsImperativeVerbCapitalized = capitalized(firstWordAsImperativeVerb)
 
-if (firstWordLowercased !== firstWordAsImperativeVerbLowercased) {
-  if (firstWordAsImperativeVerb) {
-    logError(`PR title must be written in the imperative. Try using "${firstWordAsImperativeVerbCapitalized}" instead of "${firstWordCapitalized}"`)
-  } else {
-    logError(`PR title must begin with a verb and be written in the imperative`)
-  }
+if (firstWordLowercased === firstWordAsImperativeVerbLowercased) {
+  logSuccess(`PR title is written in the imperative`)
+} else if (firstWordAsImperativeVerb) {
+  logFailure(`PR title must be written in the imperative. Try using "${firstWordAsImperativeVerbCapitalized}" instead of "${firstWordCapitalized}"`)
+} else {
+  logFailure(`PR title must begin with a verb and be written in the imperative`)
 }
 
-// Rule 4: PR title must begin with a capital letter
-if (!/^[A-Z]/.test(prTitle)) {
-  logError('PR title must begin with a capital letter')
+if (!isValidTitle) {
+  process.exit(1)
 }
-
-// Rule 5: PR title must end with a letter or number
-if (!/^[A-Za-z0-9]/.test(prTitle)) {
-  logError('PR title must end with a letter or number')
-}
-
-console.log('✅ PR title is valid!')
