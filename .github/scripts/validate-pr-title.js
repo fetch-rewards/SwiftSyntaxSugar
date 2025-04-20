@@ -1,37 +1,50 @@
 const nlp = require('compromise')
-const title = process.env.PR_TITLE || ''
+const prTitle = process.env.PR_TITLE || ''
 
-function error(message) {
+function logError(message) {
   console.error(`❌ ${message}`)
   process.exit(1)
 }
 
-// Rule 1: Max 72 characters
-if (title.length > 72) {
-  error(`Title exceeds 72 characters (${title.length})`)
+function capitalized(string) {
+  if (!string) return '';
+  return string[0].toUpperCase() + string.substring(1);
 }
 
-// Rule 2: Imperative mood check
-const firstWord = title.split(' ')[0].toLowerCase()
-const infinitiveVerb = nlp(firstWord).verbs().toInfinitive().out('text').toLowerCase()
-
-if (firstWord !== infinitiveVerb) {
-  error(`Title should be written in the imperative. Try using: "${infinitiveVerb}..."`)
+// Rule 1: PR title must not be empty
+if (!prTitle) {
+  logError(`PR title must not be empty`)
 }
 
-// Rule 3: Sentence case check
-if (title[0] !== title[0].toUpperCase()) {
-  error('Title must start with a capital letter (sentence case)')
+// Rule 2: PR title must be 72 characters or less
+if (prTitle.length > 72) {
+  logError(`PR title must be 72 characters or less (${prTitle.length})`)
 }
 
-// Rule 4: No beginning punctuation or whitespace
-if (/^[.!?;,:(){}\[\]"'`~@#$%^&*=_+\-<>|\\/\n\t\r\s]/.test(title)) {
-  error('Title should not begin with punctuation or whitespace')
+// Rule 3: PR title must be written in the imperative
+const firstWord = prTitle.split(' ')[0]
+const firstWordLowercased = firstWord.toLowerCase()
+const firstWordCapitalized = capitalized(firstWord)
+const firstWordAsImperativeVerb = nlp(firstWord).verbs().toInfinitive().out('text')
+const firstWordAsImperativeVerbLowercased = firstWordAsImperativeVerb.toLowerCase()
+const firstWordAsImperativeVerbCapitalized = capitalized(firstWordAsImperativeVerb)
+
+if (firstWordLowercased !== firstWordAsImperativeVerbLowercased) {
+  if (firstWordAsImperativeVerb) {
+    logError(`PR title must be written in the imperative. Try using "${firstWordAsImperativeVerbCapitalized}" instead of "${firstWordCapitalized}"`)
+  } else {
+    logError(`PR title must begin with a verb and be written in the imperative`)
+  }
 }
 
-// Rule 5: No ending punctuation or whitespace
-if (/[.!?;,:(){}\[\]"'`~@#$%^&*=_+\-<>|\\/\n\t\r\s]$/.test(title)) {
-  error('Title should not end with punctuation or whitespace')
+// Rule 4: PR title must begin with a capital letter
+if (!/^[A-Z]/.test(prTitle)) {
+  logError('PR title must begin with a capital letter')
+}
+
+// Rule 5: PR title must end with a letter or number
+if (!/^[A-Za-z0-9]/.test(prTitle)) {
+  logError('PR title must end with a letter or number')
 }
 
 console.log('✅ PR title is valid!')
