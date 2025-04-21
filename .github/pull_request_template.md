@@ -19,9 +19,6 @@ Include any screenshots, logs, or terminal output you think would be helpful for
 
 ## 🧪 How Has This Been Tested?
 
-- [ ] New unit tests added
-- [ ] Existing test suite passes
-
 <!-- 
 Please describe the tests you've run to verify your changes.
 If fixing a bug, please describe the steps to reproduce the bug.
