@@ -2,7 +2,7 @@
 
 <!-- 
 Please provide a brief summary of your changes along with any relevant context.
-Include any screenshots, logs, or terminal output you think would be helpful for reviewers.
+Include any screenshots, logs, or terminal output you think would be helpful to reviewers.
 -->
 
 ## 🛠️ Type of Change
@@ -22,7 +22,7 @@ Include any screenshots, logs, or terminal output you think would be helpful for
 <!-- 
 Please describe the tests you've run to verify your changes.
 If fixing a bug, please describe the steps to reproduce the bug.
-Include any screenshots, logs, or terminal output you think would be helpful for reviewers.
+Include any screenshots, logs, or terminal output you think would be helpful to reviewers.
 -->
 
 ## 🔗 Related PRs or Issues <!-- Delete section if not applicable -->
