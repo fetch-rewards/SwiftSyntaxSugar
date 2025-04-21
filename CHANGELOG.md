@@ -15,3 +15,4 @@ This initial release includes:
 
 - Expressive syntax that improves the ergonomics of working with `SwiftSyntax` types
 - Powerful, convenient extensions that reduce boilerplate when parsing Swift syntax trees
+- A well-tested foundation on which to build Swift tooling
