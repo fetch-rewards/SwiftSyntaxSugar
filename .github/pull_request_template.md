@@ -15,7 +15,7 @@ Include any screenshots, logs, or terminal output you think would be helpful to 
 - [ ] Documentation (DocC, API docs, markdown files, templates, etc.)
 - [ ] Testing (new tests, updated tests, etc.)
 - [ ] Refactoring or code formatting (no logic changes)
-- [ ] CI/CD (changes to automated workflows)
+- [ ] CI/CD (change to automated workflows)
 
 ## 🧪 How Has This Been Tested?
 
