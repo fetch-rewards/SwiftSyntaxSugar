@@ -11,7 +11,7 @@
 - [ ] Breaking change (bug fix or feature that is not backwards compatible)
 - [ ] Documentation (DocC, API docs, markdown files, templates, etc.)
 - [ ] Testing (new tests, updated tests, etc.)
-- [ ] Refactoring or formatting (no logic changes)
+- [ ] Refactoring or code formatting (no logic changes)
 - [ ] CI/CD (changes to automated workflows)
 
 ## 🧪 How Has This Been Tested?
