@@ -1,6 +1,9 @@
 ## 📝 Summary
 
-<!-- Please provide a brief summary of your changes along with any relevant context. -->
+<!-- 
+Please provide a brief summary of your changes along with any relevant context.
+Include any screenshots, logs, or terminal output you think would be useful to reviewers.
+-->
 
 ## 🛠️ Type of Change
 
@@ -16,13 +19,14 @@
 
 ## 🧪 How Has This Been Tested?
 
+- [ ] New unit tests added
+- [ ] Existing test suite passes
+
 <!-- 
 Please describe the tests you've run to verify your changes.
 If fixing a bug, please describe the steps to reproduce the bug.
+Include any screenshots, logs, or terminal output you think would be useful to reviewers.
 -->
-
-- [ ] New unit tests added
-- [ ] Existing test suite passes
 
 ## 🔗 Related PRs or Issues <!-- Delete section if not applicable -->
 
@@ -40,10 +44,6 @@ Please link any related PRs, for example:
   - Depends on #<pr-number>
   - Relates to #<pr-number>
 -->
-
-## 📸 Screenshots / Output <!-- Delete section if not applicable -->
-
-<!-- Include any screenshots, logs, or terminal output relevant to this change. -->
 
 ## ✅ Checklist
 
