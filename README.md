@@ -2,6 +2,8 @@
 
 [![ci](https://github.com/fetch-rewards/SwiftSyntaxSugar/actions/workflows/ci.yml/badge.svg)](https://github.com/fetch-rewards/SwiftSyntaxSugar/actions/workflows/ci.yml?query=branch%3Amain)
 [![codecov](https://codecov.io/gh/fetch-rewards/SwiftSyntaxSugar/graph/badge.svg?token=gTqOi09vx5)](https://codecov.io/gh/fetch-rewards/SwiftSyntaxSugar)
+[![swift](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Ffetch-rewards%2FSwiftSyntaxSugar%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/fetch-rewards/SwiftSyntaxSugar)
+[![platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Ffetch-rewards%2FSwiftSyntaxSugar%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/fetch-rewards/SwiftSyntaxSugar)
 [![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/fetch-rewards/SwiftSyntaxSugar/blob/main/LICENSE)
 
 `SwiftSyntaxSugar` is a library that provides syntactic sugar and helpful extensions for [`SwiftSyntax`](https://github.com/swiftlang/swift-syntax). 
