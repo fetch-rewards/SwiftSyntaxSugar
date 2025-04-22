@@ -15,6 +15,7 @@ Include any screenshots, logs, or terminal output you think would be helpful to 
 - [ ] Documentation (DocC, API docs, markdown files, templates, etc.)
 - [ ] Testing (new tests, updated tests, etc.)
 - [ ] Refactoring or code formatting (no logic changes)
+- [ ] Updating dependencies (Swift packages, Homebrew, etc.)
 - [ ] CI/CD (change to automated workflows)
 
 ## 🧪 How Has This Been Tested?
