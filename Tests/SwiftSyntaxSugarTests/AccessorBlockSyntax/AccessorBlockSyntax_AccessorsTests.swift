@@ -1,7 +1,6 @@
 //
 //  AccessorBlockSyntax_AccessorsTests.swift
 //
-//  Created by Gray Campbell.
 //  Copyright © 2025 Fetch.
 //
 

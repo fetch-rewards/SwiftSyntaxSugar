@@ -1,7 +1,6 @@
 //
 //  ProtocolDeclSyntax_GenericWhereClausesTests.swift
 //
-//  Created by Gray Campbell.
 //  Copyright © 2025 Fetch.
 //
 
