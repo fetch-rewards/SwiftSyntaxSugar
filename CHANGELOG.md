@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](https://semver.org).
 ### 🚀 Initial Release
 
 This is the first public release of `SwiftSyntaxSugar`, a library that extends and simplifies interaction with [`SwiftSyntax`](https://github.com/swiftlang/swift-syntax),
-aiming to reduce boilerplate and improve ergonomics for developers building Swift tooling.
+reducing boilerplate and improving ergonomics for developers building Swift tooling.
 
 This initial release includes:
 
