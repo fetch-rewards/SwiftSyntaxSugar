@@ -17,7 +17,6 @@ This project adheres to [Semantic Versioning](https://semver.org).
 - Remove author from file headers ([#67](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/67))
 
 ### Dependencies
-- Update SwiftSyntax dependency URL ([#73](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/73))
 - Update SwiftFormat minimum version and output version in CI ([#72](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/72))
 - Update SwiftSyntax dependency URL ([#73](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/73))
 
