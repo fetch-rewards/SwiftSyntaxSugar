@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](https://semver.org).
 ## 📦 [Version 0.1.1](https://github.com/fetch-rewards/SwiftSyntaxSugar/releases/tag/0.1.1) - June 24, 2025 ([Full Changelog](https://github.com/fetch-rewards/SwiftSyntaxSugar/compare/0.1.0...0.1.1))
 
 ### Documentation
+
 - Add dependencies label to docs and PR Labels workflow ([#64](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/64))
 - Add Swift version and platform badges to README ([#65](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/65))
 - Update changelog ([#69](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/69))
@@ -14,13 +15,16 @@ This project adheres to [Semantic Versioning](https://semver.org).
 - Add more issue templates ([#70](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/70))
 
 ### Formatting
+
 - Remove author from file headers ([#67](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/67))
 
 ### Dependencies
+
 - Update SwiftFormat minimum version and output version in CI ([#72](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/72))
 - Update SwiftSyntax dependency URL ([#73](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/73))
 
 ### CI/CD
+
 - Add dependencies label to docs and PR Labels workflow ([#64](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/64))
 - Update validate-pr-title script ([#66](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/66))
 - Add CODEOWNERS ([#71](https://github.com/fetch-rewards/SwiftSyntaxSugar/pull/71))
