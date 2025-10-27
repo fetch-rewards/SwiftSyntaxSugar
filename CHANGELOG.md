@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 This project adheres to [Semantic Versioning](https://semver.org).
 
-## 🚀 [Version 0.1.2](https://github.com/fetch-rewards/SwiftSyntaxSugar/releases/tag/0.1.2) - October 24, 2025 ([Full Changelog](https://github.com/fetch-rewards/SwiftSyntaxSugar/compare/0.1.1...0.1.2))
+## 🚀 [Version 0.1.2](https://github.com/fetch-rewards/SwiftSyntaxSugar/releases/tag/0.1.2) - October 27, 2025 ([Full Changelog](https://github.com/fetch-rewards/SwiftSyntaxSugar/compare/0.1.1...0.1.2))
 
 ### 📝 Documentation
 
